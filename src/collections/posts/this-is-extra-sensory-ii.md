@@ -23,6 +23,8 @@ During the 2023 Beasties Awards Show, Mawntee, who is a member of the TotalBS te
 
 !youtube[NHMWUECgqEo]
 
+After talking with the people over at TotalBS, I can tell you these people are genuinely ambitious about making the best experience possible for players of Beat Saber! It's been an absolute pleasure getting to hear their stories - but also to have the opportuinty to present this to everyone for them!
+
 ## Let's Get To Some Questions!
 
 ### Who is behind the TotalBS team?
