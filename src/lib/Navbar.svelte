@@ -48,6 +48,10 @@
           name: 'Mapping',
           href: '/posts/getting-started-with-mapping',
         },
+        {
+          name: 'Modding Status',
+          href: '/modding-status',
+        },
       ],
     },
     {
