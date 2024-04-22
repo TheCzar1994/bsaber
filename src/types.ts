@@ -12,13 +12,32 @@ export type Post = {
   linkToSpecialtyPage?: string
 }
 
+export type CommunityEventCategory = 'tournament' | 'social' | 'learning' | 'generic'
+
+export type CommunityEventCollectionData = {
+  title: string
+  url: string
+  category: CommunityEventCategory
+  startDateTime: string
+  useStartTime: boolean
+  endDateTime?: string
+  useEndTime: boolean
+  host: string
+}
+
+export type CommunityEventHostCollectionData = {
+  name: string
+  url: string
+}
+
+export type CommunityEventHost = CommunityEventHostCollectionData
+
 export type CommunityEvent = {
   title: string
-  slug: string
-  publishDateISO: string
+  url: string
   dateParams: EventDateParams
-  hostUsername: string
-  category: 'tournament' | 'social' | 'learning' | 'competition' | 'generic' // category determines icon
+  host: CommunityEventHost
+  category: CommunityEventCategory
 }
 
 export type EventDateParams = {
@@ -61,7 +80,7 @@ export type Playlist = {
 }
 
 export type Beatmap = {
-  id: number
+  id: string
   name: string
   description: string
   uploader: Uploader
@@ -74,6 +93,9 @@ export type Beatmap = {
 export type BeatmapVersion = {
   hash: string
   diffs: BeatmapDifficulty[]
+  downloadURL: string
+  coverURL: string
+  previewURL: string
 }
 
 export type BeatmapDifficulty = {
@@ -87,6 +109,7 @@ export type BeatmapDifficulty = {
     | 'Lawless'
     | 'Legacy'
   difficulty: 'Easy' | 'Normal' | 'Hard' | 'Expert' | 'ExpertPlus'
+  nps: number
 }
 
 export type Uploader = {

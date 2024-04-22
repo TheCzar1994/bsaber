@@ -263,11 +263,14 @@
 <div class="header">
   <h1>Community Hub</h1>
   <div class="filter-dropdown-anchor">
-    <div class="filter-button" on:click={() => toggleFilterDropdown()}>
-      Filter
-    </div>
+    <div class="filter-button" on:click={() => toggleFilterDropdown()}>Filter</div>
     <div class="filter-dropdown" style={showFilterdropdown ? 'display: block' : 'display: none;'}>
-      <input class="search-text-field" type="text" placeholder="Search" on:input={updateNameAndDescriptionFilter} />
+      <input
+        class="search-text-field"
+        type="text"
+        placeholder="Search"
+        on:input={updateNameAndDescriptionFilter}
+      />
       <div class="labels">
         {#each data.availableLabels as label}
           <div
@@ -324,9 +327,8 @@
         <div class="community-info">
           <div class="labels">
             {#each community.labels as label}
-              <span
-                class="label"
-                style="border-color: {getLabelObject(label)?.color};">{label}</span
+              <span class="label" style="border-color: {getLabelObject(label)?.color};"
+                >{label}</span
               >
             {/each}
           </div>
@@ -383,7 +385,7 @@
         margin: 0;
         flex-grow: 1;
 
-        transition: background-color 0.15s;
+        transition: background-color $transition-short;
 
         &:hover {
           cursor: pointer;
@@ -422,7 +424,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     margin-top: 1rem;
-    gap: 0.5rem
+    gap: 0.5rem;
   }
 
   .social-filter-button {
@@ -431,7 +433,7 @@
     align-items: center;
     aspect-ratio: 1;
     color: $color-text-primary;
-    transition: background-color 0.15s;
+    transition: background-color $transition-short;
     border-radius: $rounding-small;
 
     &:hover {
@@ -455,7 +457,7 @@
     border-radius: $rounding-small;
     padding: 0.3rem 1rem;
 
-    transition: background-color 0.15s;
+    transition: background-color $transition-short;
 
     &::after {
       display: inline-block;
@@ -565,7 +567,7 @@
       width: 2em;
       aspect-ratio: 1;
 
-      transition: background-color 0.15s;
+      transition: background-color $transition-short;
 
       &:hover {
         background-color: mix($color-background-secondary, $color-background-tertiary, 50%);

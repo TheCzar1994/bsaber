@@ -33,7 +33,7 @@
     text-transform: uppercase;
     font-family: $font-poppins;
     font-size: 1rem;
-    transition: background-color 0.15s;
+    transition: background-color $transition-short;
 
     .content {
       position: relative;
@@ -62,7 +62,7 @@
     ranked: darken($color-warning-yellow, 5%),
     curated: darken($color-success-green, 5%),
     verified: darken($color-info-blue, 5%),
-    playlists: $color-bsaber-purple
+    playlists: $color-bsaber-purple,
   );
 
   @each $name, $color in $colors {

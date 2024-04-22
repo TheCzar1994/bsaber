@@ -1,12 +1,6 @@
-import { RootPageSSRData } from './../types'
 import { getSortedMapsOfTheWeekNetlifyData } from '$lib/getMapsOfTheWeekNetlifyData'
-import type {
-  Post,
-  MapOfTheWeek,
-  CommunityEvent,
-  ImportPostModuleData,
-  ImportMapOfTheWeekModuleData,
-} from '../types'
+import type { Post, MapOfTheWeek, CommunityEvent, ImportPostModuleData } from '../types'
+import { retrieveCommunityEvents } from '$lib/retrieveCommunityEvents'
 
 export type RootPageSSRData = {
   announcements: Post[]
@@ -70,7 +64,7 @@ export async function load({ fetch }: LoadParameters): Promise<RootPageSSRData> 
           seniorCurator: beatSaverMapData.uploader.seniorCurator,
           verifiedMapper: beatSaverMapData.uploader.verifiedMapper,
         },
-        collaborators: beatSaverMapData.collaborators
+        collaborators: beatSaverMapData.collaborators,
       },
       showcase: currentMOTWCollectionData.showcase,
       review: currentMOTWCollectionData.review,
@@ -105,9 +99,11 @@ export async function load({ fetch }: LoadParameters): Promise<RootPageSSRData> 
     rootPageSSRData[key as keyof typeof rootPageSSRData] = value.sort(sortByPublishDate)
   }
 
+  const communityEvents = await retrieveCommunityEvents()
+
   return {
     ...rootPageSSRData,
-    communityEvents: [],
+    communityEvents: communityEvents,
     currentMapOfTheWeek,
   }
 }

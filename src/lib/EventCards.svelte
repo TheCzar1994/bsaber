@@ -9,43 +9,37 @@
 
   export let events: CommunityEvent[]
   export let maxCards: number = 6 // max amount of cards to show, ideally divisble by 3
+  export let keyPrefix: string = ''
   const eventData = events.slice(0, Math.round(maxCards))
-
-  const createSlug = (username: string) => {
-    const lowercaseUsername = username.toLowerCase().trim()
-    const slug = lowercaseUsername.replace(/\s+/g, '-')
-    return slug
-  }
 
   const createDateText = ({
     dateParams: { startDateUTC, endDateUTC, startTimeUTC, endTimeUTC },
   }: CommunityEvent): string => {
-    const startDate = new Date(startDateUTC)
-    const endDate = endDateUTC ? new Date(endDateUTC) : null
-    const startTime = startTimeUTC ? new Date(`2000-01-01T${startTimeUTC}Z`) : null
-    const endTime = endTimeUTC ? new Date(`2000-01-01T${endTimeUTC}Z`) : null
+    const startDate = new Date(`${startDateUTC}T${startTimeUTC ?? '00:00:00'}Z`)
+    const endDate = new Date(`${endDateUTC ?? '2000-01-01'}T${endTimeUTC ?? '00:00:00'}Z`)
 
     const options: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeric', year: 'numeric' }
-    const startDateText = startDate.toLocaleDateString(undefined, options)
-    const endDateText = endDate ? endDate.toLocaleDateString(undefined, options) : null
-    const startTimeText = startTime
-      ? startTime.toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric' })
+    const startDateText = startTimeUTC
+      ? startDate.toLocaleDateString('en-US', options)
+      : new Intl.DateTimeFormat('en-US', options).format(startDate)
+    const endDateText = endTimeUTC
+      ? endDate.toLocaleDateString('en-US', options)
+      : new Intl.DateTimeFormat('en-US', options).format(endDate)
+    const startTimeText = startTimeUTC
+      ? startDate.toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric' })
       : null
-    const endTimeText = endTime
-      ? endTime.toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric' })
+    const endTimeText = endTimeUTC
+      ? endDate.toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric' })
       : null
 
-    let finalDateText = ''
-    if (startDateText) {
-      finalDateText = startDateText
-      if (startTimeText) {
-        finalDateText += ` | ${startTimeText} UTC`
-      }
-      if (endDateText) {
-        finalDateText += ` - ${endDateText}`
-        if (endTimeText) {
-          finalDateText += ` | ${endTimeText} UTC`
-        }
+    let finalDateText = startDateText
+    if (startTimeText) {
+      finalDateText += ` | ${startTimeText}`
+    }
+    if (endDateUTC) {
+      finalDateText += ` - ${endDateText}`
+      if (endTimeText) {
+        finalDateText += ` | ${endTimeText}`
       }
     }
     return finalDateText
@@ -56,8 +50,6 @@
     const { category } = event
     let faIcon, customIcon
     if (category === 'tournament') {
-      customIcon = './player-icon.svg'
-    } else if (category === 'competition') {
       faIcon = faMedal
     } else if (category === 'learning') {
       faIcon = faGraduationCap
@@ -75,10 +67,10 @@
 </script>
 
 <div class="cards">
-  {#each processedEventData as event}
-    <div class="card">
+  {#each processedEventData as event, index (keyPrefix + '-' + index)}
+    <div class="card" id={keyPrefix + '-' + index}>
       <!-- href to be updated with path e.g. '/community-events/event.slug' -->
-      <a class="title" href="#">
+      <a class="title" href={event.url}>
         {event.title ?? ''}
       </a>
       <div class="info-container">
@@ -92,9 +84,11 @@
         <div class="text-container">
           <!-- host href should be updated with future route, e.g. {`/members/createSlug(event.hostUsername)`}-->
           <span class="host">
-            Hosted by <a href="#">{event.hostUsername}</a>
+            Hosted by <a href={event.host.url}>{event.host.name}</a>
           </span>
-          <span class="date">{createDateText(event)}</span>
+          <span class="date" title={Intl.DateTimeFormat().resolvedOptions().timeZone}
+            >{createDateText(event)}</span
+          >
         </div>
       </div>
     </div>
