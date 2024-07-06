@@ -15,6 +15,8 @@
   import { faLink, faBook } from '@fortawesome/free-solid-svg-icons'
   import Fa from 'svelte-fa/src/fa.svelte'
   import Fuse from 'fuse.js'
+  import SocialIcon from '$lib/SocialIcon.svelte'
+  import { iconMapping } from '$lib/iconMapping'
 
   const filterCommunities = (
     communities: CommunityHubSSRData['communities'],
@@ -62,19 +64,6 @@
   )
   let showFilterdropdown = false
 
-  const iconMapping = {
-    Discord: faDiscord,
-    'Twitter/X': faXTwitter,
-    Facebook: faFacebook,
-    Instagram: faInstagram,
-    Twitch: faTwitch,
-    YouTube: faYoutube,
-    Reddit: faReddit,
-    GitHub: faGithub,
-    Website: faLink,
-    Documentation: faBook,
-  }
-
   const getLabelObject = (labelName: string) => {
     return data.availableLabels.find((label) => label.label === labelName)
   }
@@ -84,7 +73,6 @@
     if (foundLabel) {
       foundLabel.activated = !foundLabel.activated
       data.availableLabels = [...data.availableLabels]
-      console.log(data.availableLabels)
     }
 
     filteredCommunities = filterCommunities(
@@ -117,7 +105,6 @@
     }
     nameAndDescriptionFilter = (event.target as HTMLInputElement).value
     debounceTimeout = setTimeout(() => {
-      console.log(nameAndDescriptionFilter)
       filteredCommunities = filterCommunities(
         data.communities,
         data.availableLabels,
@@ -263,11 +250,14 @@
 <div class="header">
   <h1>Community Hub</h1>
   <div class="filter-dropdown-anchor">
-    <div class="filter-button" on:click={() => toggleFilterDropdown()}>
-      Filter
-    </div>
+    <div class="filter-button" on:click={() => toggleFilterDropdown()}>Filter</div>
     <div class="filter-dropdown" style={showFilterdropdown ? 'display: block' : 'display: none;'}>
-      <input class="search-text-field" type="text" placeholder="Search" on:input={updateNameAndDescriptionFilter} />
+      <input
+        class="search-text-field"
+        type="text"
+        placeholder="Search"
+        on:input={updateNameAndDescriptionFilter}
+      />
       <div class="labels">
         {#each data.availableLabels as label}
           <div
@@ -286,7 +276,7 @@
             title={name}
             on:click={toggleSocialFilter(name)}
           >
-            <Fa {icon} />
+            <SocialIcon social={name} noLink={true} />
           </span>
         {/each}
       </div>
@@ -294,6 +284,13 @@
   </div>
 </div>
 <hr class="fade" />
+<p>
+  Want to be featured in our Community Hub? <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSdX7t87EOWahI_n8Tlhi_bkaq1xcp-55po-gNtYSbyPiBQK5w/viewform"
+    >Fill out this form!</a
+  >
+</p>
+<br />
 <div class="grid">
   {#each filteredCommunities as community, communityIndex (community)}
     <div class="community-card activity-{community.activityLevel}">
@@ -324,9 +321,8 @@
         <div class="community-info">
           <div class="labels">
             {#each community.labels as label}
-              <span
-                class="label"
-                style="border-color: {getLabelObject(label)?.color};">{label}</span
+              <span class="label" style="border-color: {getLabelObject(label)?.color};"
+                >{label}</span
               >
             {/each}
           </div>
@@ -334,14 +330,8 @@
         </div>
       </div>
       <div class="social-icons">
-        {#each community.socials as social, socialIndex (social)}
-          <a
-            id={`${communityIndex}-${socialIndex}-${social.name}`}
-            href={social.url}
-            title={social.titleOverwrite ?? social.name}
-          >
-            <Fa icon={iconMapping[social.name]} />
-          </a>
+        {#each community.socials as social, socialIndex (`${communityIndex}-${socialIndex}-${social.name}`)}
+          <SocialIcon social={social.name} link={social.url} titleOverwrite={social.title} />
         {/each}
       </div>
     </div>
@@ -383,7 +373,7 @@
         margin: 0;
         flex-grow: 1;
 
-        transition: background-color 0.15s;
+        transition: background-color $transition-short;
 
         &:hover {
           cursor: pointer;
@@ -422,7 +412,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     margin-top: 1rem;
-    gap: 0.5rem
+    gap: 0.5rem;
   }
 
   .social-filter-button {
@@ -431,7 +421,7 @@
     align-items: center;
     aspect-ratio: 1;
     color: $color-text-primary;
-    transition: background-color 0.15s;
+    transition: background-color $transition-short;
     border-radius: $rounding-small;
 
     &:hover {
@@ -455,7 +445,7 @@
     border-radius: $rounding-small;
     padding: 0.3rem 1rem;
 
-    transition: background-color 0.15s;
+    transition: background-color $transition-short;
 
     &::after {
       display: inline-block;
@@ -495,8 +485,16 @@
     }
 
     &.activity-high {
-      .community-image img {
-        border: 3px solid #32cd32;
+      animation: colorTransition 3s linear infinite alternate;
+    }
+
+    @keyframes colorTransition {
+      0%,
+      100% {
+        box-shadow: 0 0 15px 5px $color-bsaber-purple;
+      }
+      50% {
+        box-shadow: 0 0 15px 5px $color-difficulty-purple;
       }
     }
   }
@@ -555,21 +553,5 @@
     justify-content: flex-end;
     color: inherit;
     gap: 0.25rem;
-
-    a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: $color-text-primary;
-      border-radius: $rounding-small;
-      width: 2em;
-      aspect-ratio: 1;
-
-      transition: background-color 0.15s;
-
-      &:hover {
-        background-color: mix($color-background-secondary, $color-background-tertiary, 50%);
-      }
-    }
   }
 </style>

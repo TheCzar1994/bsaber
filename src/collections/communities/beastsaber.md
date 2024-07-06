@@ -8,14 +8,16 @@ circleFrameImage: true
 labels:
   - General
   - Modding
-activityLevel: medium
+activityLevel: high
 socials:
   - name: Website
-    url: https://www.bsaber.info
+    url: https://www.bsaber.com
   - name: YouTube
     url: https://www.youtube.com/@BeastSaberNews
   - name: Twitter/X
     url: https://twitter.com/BeastSaberNews
+  - name: GitHub
+    url: https://github.com/beastsaber/bsaber
   - name: Discord
     url: https://discord.gg/VJZHUbt
 languages:

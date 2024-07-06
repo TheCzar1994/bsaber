@@ -1,7 +1,10 @@
+import type { iconMapping } from '$lib/iconMapping'
+
 export type Post = {
   title: string
   section: 'announcements' | 'articles' | 'speciality'
   publish: string
+  lastUpdated?: string
   body: string
   slug: string
   homepageText?: string
@@ -10,43 +13,79 @@ export type Post = {
   category: '' | 'announcement' | 'news' | 'articles' | 'interview' | 'event'
   showInPostListing: boolean
   linkToSpecialtyPage?: string
+  authors: string[]
+  credits: { contributors: string[]; contribution?: string }[]
 }
+
+export type Person = {
+  name: string
+  beatsaverId: string
+  bio?: string
+  socialLinks: {
+    platform: keyof typeof iconMapping
+    id: string
+  }[]
+}
+
+export interface Author extends Uploader {
+  bio: Person['bio']
+  socialLinks: Person['socialLinks']
+}
+
+export type PostWithAuthorAndContributor = Omit<Post, 'authors' | 'credits'> & {
+  authors: Author[]
+  credits: { contributors: Uploader[]; contribution?: string }[]
+}
+
+export type CommunityEventCategory = 'tournament' | 'social' | 'learning' | 'awards' | 'generic'
+
+export type CommunityEventCollectionData = {
+  title: string
+  url: string
+  category: CommunityEventCategory
+  startDateTime: string
+  useStartTime: boolean
+  endDateTime?: string
+  useEndTime: boolean
+  host: string
+}
+
+export type CommunityEventHostCollectionData = {
+  name: string
+  url: string
+}
+
+export type CommunityEventHost = CommunityEventHostCollectionData
 
 export type CommunityEvent = {
   title: string
-  slug: string
-  publishDateISO: string
+  url: string
   dateParams: EventDateParams
-  hostUsername: string
-  category: 'tournament' | 'social' | 'learning' | 'competition' | 'generic' // category determines icon
+  host: CommunityEventHost
+  category: CommunityEventCategory
 }
 
 export type EventDateParams = {
-  startDateUTC: string
-  endDateUTC?: string
-  startTimeUTC?: string
-  endTimeUTC?: string
+  startDateTimeUTC: Date
+  endDateTimeUTC?: Date
+  useStartTime: boolean
+  useEndTime: boolean
 }
 
 export type MapOfTheWeekCollectionData = {
   mapId: string
   review: string
   startDate: string
-  showcase: {
-    id: string
-    type: 'youtube-short' | 'youtube-video'
+  showcase?: {
+    id?: string
+    type?: 'youtube-short' | 'youtube-video'
   }
   coverUrlOverwrite?: string
 }
 
 export type MapOfTheWeek = {
-  map: {
-    id: string
-    name: string
-    coverUrl: string
-    uploader: Uploader
-    collaborators: Uploader[] | undefined
-  }
+  map: Beatmap
+  coverUrl: string
   review: string
   showcase: MapOfTheWeekCollectionData['showcase']
   startDate: Date
@@ -61,7 +100,7 @@ export type Playlist = {
 }
 
 export type Beatmap = {
-  id: number
+  id: string
   name: string
   description: string
   uploader: Uploader
@@ -74,6 +113,9 @@ export type Beatmap = {
 export type BeatmapVersion = {
   hash: string
   diffs: BeatmapDifficulty[]
+  downloadURL: string
+  coverURL: string
+  previewURL: string
 }
 
 export type BeatmapDifficulty = {
@@ -87,6 +129,7 @@ export type BeatmapDifficulty = {
     | 'Lawless'
     | 'Legacy'
   difficulty: 'Easy' | 'Normal' | 'Hard' | 'Expert' | 'ExpertPlus'
+  nps: number
 }
 
 export type Uploader = {
@@ -115,6 +158,8 @@ type ImportModuleData<T> = {
 export type ImportPostModuleData = ImportModuleData<Omit<Post, 'slug'>>
 
 export type ImportMapOfTheWeekModuleData = ImportModuleData<MapOfTheWeekCollectionData>
+
+export type ImportPersonModuleData = ImportModuleData<Person>
 
 export type RootPageSSRData = {
   announcements: Post[]

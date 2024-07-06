@@ -1,12 +1,6 @@
-import { RootPageSSRData } from './../types'
 import { getSortedMapsOfTheWeekNetlifyData } from '$lib/getMapsOfTheWeekNetlifyData'
-import type {
-  Post,
-  MapOfTheWeek,
-  CommunityEvent,
-  ImportPostModuleData,
-  ImportMapOfTheWeekModuleData,
-} from '../types'
+import type { Post, MapOfTheWeek, CommunityEvent, ImportPostModuleData } from '../types'
+import { retrieveCommunityEvents } from '$lib/retrieveCommunityEvents'
 
 export type RootPageSSRData = {
   announcements: Post[]
@@ -43,35 +37,13 @@ export async function load({ fetch }: LoadParameters): Promise<RootPageSSRData> 
       `https://api.beatsaver.com/maps/id/${currentMOTWCollectionData.mapId}`,
     ).then((res) => res.json())
 
-    let coverUrl = currentMOTWCollectionData.coverUrlOverwrite
-    if (coverUrl == null) {
-      const beatLeaderLeaderBoardData = await fetch(
-        `https://api.beatleader.xyz/leaderboard/${beatSaverMapData.id}`,
-      ).then((res) => res.json())
-      coverUrl = beatLeaderLeaderBoardData.song.fullCoverImage
-    }
-
-    if (coverUrl == null) {
-      throw new Error('No cover URL found!')
-    }
+    let coverUrl =
+      currentMOTWCollectionData.coverUrlOverwrite ??
+      `https://cdn.assets.beatleader.xyz/songcover-${currentMOTWCollectionData.mapId}-full.webp`
 
     currentMapOfTheWeek = {
-      map: {
-        id: beatSaverMapData.id,
-        name: beatSaverMapData.name,
-        coverUrl: coverUrl,
-        uploader: {
-          id: beatSaverMapData.uploader.id,
-          name: beatSaverMapData.uploader.name,
-          avatar: beatSaverMapData.uploader.avatar,
-          description: beatSaverMapData.uploader.description,
-          admin: beatSaverMapData.uploader.admin,
-          curator: beatSaverMapData.uploader.curator,
-          seniorCurator: beatSaverMapData.uploader.seniorCurator,
-          verifiedMapper: beatSaverMapData.uploader.verifiedMapper,
-        },
-        collaborators: beatSaverMapData.collaborators
-      },
+      map: beatSaverMapData,
+      coverUrl: coverUrl,
       showcase: currentMOTWCollectionData.showcase,
       review: currentMOTWCollectionData.review,
       startDate: currentMOTWCollectionData.startDate,
@@ -105,9 +77,11 @@ export async function load({ fetch }: LoadParameters): Promise<RootPageSSRData> 
     rootPageSSRData[key as keyof typeof rootPageSSRData] = value.sort(sortByPublishDate)
   }
 
+  const communityEvents = await retrieveCommunityEvents()
+
   return {
     ...rootPageSSRData,
-    communityEvents: [],
+    communityEvents: communityEvents,
     currentMapOfTheWeek,
   }
 }

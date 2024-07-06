@@ -1,10 +1,11 @@
-import { retrieveCollectionData } from "$lib/retrieveCollectionData";
+import { retrievePostDataWithAuthorAndContributors } from '$lib/retrieveCollectionData'
 
 type LoadParameter = {
   params: {
     slug: string
-  },
-  fetch: typeof fetch,
-};
+  }
+  fetch: typeof fetch
+}
 
-export const load = ({ params }: LoadParameter) => retrieveCollectionData('posts', params.slug); 
+export const load = ({ params }: LoadParameter) =>
+  retrievePostDataWithAuthorAndContributors(params.slug)

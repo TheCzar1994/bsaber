@@ -1,2 +1,5 @@
-import { retrieveCollectionData } from "$lib/retrieveCollectionData";
-export const load = () => retrieveCollectionData('posts', 'installing-the-mod-guide-necessary-for-any-custom-songs'); 
+import { retrievePostDataWithAuthorAndContributors } from '$lib/retrieveCollectionData'
+export const load = () =>
+  retrievePostDataWithAuthorAndContributors(
+    'installing-the-mod-guide-necessary-for-any-custom-songs',
+  )

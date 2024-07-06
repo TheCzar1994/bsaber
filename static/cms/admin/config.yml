@@ -1,7 +1,9 @@
 local_backend: true
+publish_mode: editorial_workflow
 backend:
   name: git-gateway
   branch: master
+  squash_merges: true
 collections:
   - name: posts
     label: Posts
@@ -33,6 +35,10 @@ collections:
       - name: publish
         label: Publish Date
         widget: datetime
+      - name: lastUpdated
+        label: Last Updated
+        widget: datetime
+        required: false
       - name: homepageText
         label: Homepage Text
         required: false
@@ -40,12 +46,44 @@ collections:
       - name: body
         label: Body
         widget: markdown
+        modes:
+          - raw
       - name: image
         label: Image
         widget: image
         required: false
         media_folder: /static/uploads/posts
         choose_url: false
+      - name: authors
+        label: Author(s)
+        widget: relation
+        multiple: true
+        collection: people
+        search_fields: [name]
+        value_field: '{{beatsaverId}}'
+        display_fields: [name]
+        required: false
+        hint: The author(s) of this article. You can select multiple, but you don't have to specify any!
+      - name: credits
+        label: Credits
+        required: false
+        widget: list
+        summary: 'Thanks to {{fields.contributor}} for {{fields.contribution}}.'
+        fields:
+          - name: contributors
+            label: Contributor(s)
+            widget: relation
+            collection: people
+            search_fields: [name]
+            value_field: '{{beatsaverId}}'
+            display_fields: [name]
+            multiple: true
+            hint: The contributor(s) of this article. You can select multiple if they have contributed in the same way.
+          - name: contribution
+            label: Contribution
+            widget: string
+            hint: 'The contribution of the contributor(s) to this article. If provided it will be inserted into the articles as "Thanks to {{Contributor}} for {{Contribution}}." If not provided, {{Contribution}} will default to "for their contribution". Example: ''the feedback and proofreading the article''.'
+            required: false
       - name: showInPostListing
         label: Show in post listing
         widget: boolean
@@ -53,7 +91,7 @@ collections:
       - name: linkToSpecialtyPage
         label: Link to Specialty Page
         required: false
-        hint: "If there is a specialty page for this post, provide the URL here. This is used to link it as canonical URL in the metadata (SEO). Only provide the path, not the full URL. Do: /speciality/your-speciality-page, Don't: https://bsaber.info/speciality/your-speciality-page"
+        hint: "If there is a specialty page for this post, provide the URL here. This is used to link it as canonical URL in the metadata (SEO). Only provide the path, not the full URL. Do: /speciality/your-speciality-page, Don't: https://bsaber.com/speciality/your-speciality-page"
         widget: string
   - name: map-of-the-week
     label: Map of the Week
@@ -83,9 +121,11 @@ collections:
             label: ID
             hint: The ID of the video. For YouTube videos and shorts, this is the last part of the URL. For example, the ID of the video https://www.youtube.com/shorts/ed8A3n49Gmg is the last part ed8A3n49Gmg.
             widget: string
+            required: false
           - name: type
             label: ID Type
             widget: select
+            required: false
             options:
               - { label: 'YouTube Short', value: 'youtube-short' }
               - { label: 'YouTube Video', value: 'youtube-video' }
@@ -231,5 +271,143 @@ collections:
           - { label: 'Maltese', value: 'mt' }
           - { label: 'Welsh', value: 'cy' }
           - { label: 'Belarusian', value: 'be' }
+  - name: community-events
+    label: Community Events
+    label_singular: Community Event
+    folder: src/collections/community-events
+    slug: '{{title}}'
+    create: true
+    view_filters:
+      - label: Beat Saber Modding Group
+        field: host
+        pattern: Beat Saber Modding Group
+      - label: Cube Community
+        field: host
+        pattern: Cube Community
+      - label: BeastSaber
+        field: host
+        pattern: BeastSaber
+      - label: Beat Khana
+        field: host
+        pattern: Beat Khana
+      - label: Beat Saber Mapping Server
+        field: host
+        pattern: Beat Saber Mapping Server
+      - label: Beat Saber Mapping Workshop
+        field: host
+        pattern: Beat Saber Mapping Workshop
+      - label: Beat Saber Tourneys
+        field: host
+        pattern: Beat Saber Tourneys
+      - label: Beat Saber University League
+        field: host
+        pattern: Beat Saber University League
+      - label: Beat Saber World Cup
+        field: host
+        pattern: Beat Saber World Cup
+      - label: BeatLeader
+        field: host
+        pattern: BeatLeader
+      - label: Comfy Sabers
+        field: host
+        pattern: Comfy Sabers
+    sortable_fields: ['host', 'title']
+    fields:
+      - name: host
+        label: Host
+        widget: relation
+        collection: community-event-hosts
+        search_fields: [name]
+        value_field: name
+        display_fields: [name]
+      - name: title
+        label: Title
+      - name: url
+        label: URL
+      - name: category
+        label: Category
+        widget: select
+        options:
+          - { label: 'Tournament', value: 'tournament' }
+          - { label: 'Social', value: 'social' }
+          - { label: 'Learning', value: 'learning' }
+          - { label: 'Awards', value: 'awards' }
+          - { label: 'Generic', value: 'generic' }
+      - name: startDateTime
+        label: Start Date/Time
+        widget: datetime
+        default:
+        format: YYYY-MM-DDTHH:mm:ssZ
+      - name: useStartTime
+        label: Use Start Time
+        widget: boolean
+        required: false
+        default: false
+      - name: endDateTime
+        label: End Date/Time
+        widget: datetime
+        required: false
+        default:
+        format: YYYY-MM-DDTHH:mm:ssZ
+      - name: useEndTime
+        label: Use End Time
+        widget: boolean
+        required: false
+        default: false
+  - name: community-event-hosts
+    label: Community Event Hosts
+    folder: src/collections/community-event-hosts
+    slug: '{{name}}'
+    create: true
+    fields:
+      - name: name
+        label: Name
+      - name: url
+        label: URL
+        widget: string
+  - name: people
+    label: People
+    folder: src/collections/people
+    slug: '{{name}}'
+    create: true
+    fields:
+      - name: name
+        label: name
+      - name: beatsaverId
+        label: BeatSaver ID
+        hint: "The BeatSaver ID of the user. You can find this one in the URL of the user's page on beatsaver.com which will look like this: https://beatsaver.com/profile/${beatsaverId}. The ID is the last part of the URL."
+      - name: bio
+        label: Bio
+        widget: markdown
+        required: false
+        hint: A short bio of the user. Only used for authors on posts.
+      - name: socialLinks
+        label: Social Links
+        widget: list
+        multiple: true
+        required: false
+        hint: The social links of the user. Only used for authors on posts. The BeatSaver ID is given above as well, but if you want this to be listed as your social links you need to re-enter it here.
+        summary: '{{fields.platform}}: {{fields.id}}'
+        fields:
+          - name: platform
+            label: Platform
+            widget: select
+            options:
+              [
+                'Discord',
+                'Twitter/X',
+                'Facebook',
+                'Instagram',
+                'Twitch',
+                'YouTube',
+                'Reddit',
+                'GitHub',
+                'Website',
+                'Documentation',
+                'BeatSaver',
+              ]
+          - name: id
+            label: ID
+            widget: string
 media_folder: 'static/uploads'
 public_folder: '/uploads'
