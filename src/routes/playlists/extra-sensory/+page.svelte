@@ -6,13 +6,13 @@
 <MetaHead
   title="Extra Sensory I"
   description="EXTRA SENSORY I - The original Extra Sensory event pack release which debuted in 2020"
-  imageUrl="/totalbslogo1.png"
+  imageUrl="/uploads/playlists/totalbslogo1.png"
 />
 
 <section class="hero">
   <div class="content">
     <p>
-      <img src="/totalbslogo1.png" alt="TotalBS Logo" width="100" height="100" />
+      <img src="/uploads/playlists/totalbslogo1.png" alt="TotalBS Logo" width="100" height="100" />
     </p>
     <p>TOTAL BS PRESENTS</p>
     <h1>EXTRA SENSORY I</h1>
@@ -69,7 +69,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('/totalbsbackground.png') no-repeat center center;
+    background: url('/uploads/playlists/totalbsbackground.png') no-repeat center center;
     background-size: cover;
     filter: brightness(30%) blur(5px);
     z-index: -1;
@@ -101,8 +101,6 @@
 
   p {
     margin: 0.5rem 1rem 0;
-    font-weight: 600;
-    font-size: large;
   }
   .btn,
   .btn2,
