@@ -8,8 +8,11 @@ homepageText: As a part of the release of Extra Sensory II, we got a chance to
   published as of writing this article. Check out this article to learn more
   about Jevk!
 image: /static/uploads/posts/sywwner9_400x400.png
+authors:
+  - '4285984'
 showInPostListing: true
 ---
+
 [Go back to **"This is Extra Sensory II"**](/posts/this-is-extra-sensory-ii)
 
 # Interview with Jevk
@@ -20,18 +23,18 @@ You might've heard of Jevk around the community; especially more recently as the
 
 !youtube[o0vC9ymtMAg]
 \
-*Preview of Camellia - GHOUL*
+_Preview of Camellia - GHOUL_
 
 ### Check out their socials!
 
-* [BeatSaver](https://beatsaver.com/profile/4284636)
-* [Twitter](https://twitter.com/jevk_)
-* [Twitch](https://www.twitch.tv/jevk)
-* [BeatLeader](https://www.beatleader.xyz/u/76561198100136966)
-* [ScoreSaber](https://scoresaber.com/u/76561198100136966)
-* [GitHub](https://www.github.com/jevk)
+- [BeatSaver](https://beatsaver.com/profile/4284636)
+- [Twitter](https://twitter.com/jevk_)
+- [Twitch](https://www.twitch.tv/jevk)
+- [BeatLeader](https://www.beatleader.xyz/u/76561198100136966)
+- [ScoreSaber](https://scoresaber.com/u/76561198100136966)
+- [GitHub](https://www.github.com/jevk)
 
-![About Jevk](/uploads/jevkbanner.png "About Jevk")
+![About Jevk](/uploads/jevkbanner.png 'About Jevk')
 
 ### Q: Tell us who you are! Your name, how long you’ve been playing Beat Saber, what got you started playing, what got you started modding, hobbies, etc.
 
@@ -39,7 +42,7 @@ You might've heard of Jevk around the community; especially more recently as the
 
 Later that year, I was watching my at the time favorite streamer, BTMC, and I saw him playing it and thought that it looked cool. So essentially osu! got me into the game. I started saving for my first VR headset, it took me about a year but eventually, I bought the OG Vive set and on the same day, I bought Beat Saber as my first VR game. I remember not even opening the game before I already googled how to get custom songs. :D
 
-I think what really got me interested in the game is the fact that I had always wanted a VR headset ever since I saw PewDiePie try the original Oculus dev kit. And I've always been keen on rhythm games as well, so it was a combination of both. I also play the piano and studied music theory for a bit which probably also got my interest in rhythm games. 
+I think what really got me interested in the game is the fact that I had always wanted a VR headset ever since I saw PewDiePie try the original Oculus dev kit. And I've always been keen on rhythm games as well, so it was a combination of both. I also play the piano and studied music theory for a bit which probably also got my interest in rhythm games.
 
 <br />
 
@@ -77,7 +80,7 @@ Generally, the biggest difference between ReMapper and HeckLib is that ReMapper 
 
 !youtube[bol8jd1IAMw]
 \
-*Check out this playthrough of [Jevk's first mod-chart](https://beatsaver.com/maps/14171) by Kazekiri Lionheart!*
+_Check out this playthrough of [Jevk's first mod-chart](https://beatsaver.com/maps/14171) by Kazekiri Lionheart!_
 
 How the idea of Extra Sensory II started is beyond me, but I remember trying to start the NESRT (Noodle Extensions Sight-Reading Tournament) with my good friend, Emerald. Which is when I think either Mawntee or Reaxt told me that this could be somehow implemented with the release of Vivify and I was told not to do the tournament after that.
 
@@ -113,4 +116,4 @@ Modcharts are not designed to be SS'd first try. Please try a bit more.
 
 **We'd like to thank Jevk for taking the time to answer our questions! Be sure to check out the interviews with the rest of the team!**
 \
-**This interview was lightly edited for spelling, grammar, formatting, and clarity.*
+\*_This interview was lightly edited for spelling, grammar, formatting, and clarity._

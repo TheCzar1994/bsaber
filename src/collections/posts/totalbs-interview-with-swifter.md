@@ -7,29 +7,32 @@ homepageText: "Surely you've heard of Swifter!? You know... one of the mappers
   involved in the (as of writing this article) #2 map of all time with a
   whopping 16,000 upvotes. Check out this article to learn more about Swifter!"
 image: /static/uploads/posts/sywwner9_400x400.png
+authors:
+  - '4285984'
 showInPostListing: true
 ---
+
 [Go back to **"This is Extra Sensory II"**](/posts/this-is-extra-sensory-ii)
 
 # Interview with Swifter
 
 ## Swifter is a member of TotalBS, and a Verified Mapper with 56 maps published as of writing this article. They're also from Canada!
 
-Surely you've heard of Swifter!? You know... one of the mappers involved in the (as of writing this article) #2 map of all time with a whopping 16,000 upvotes: [{Modchart} acloudyskye - Somewhere Out There](https://beatsaver.com/maps/1e6ff). This map won in the 2021 BeastSaber Mapping Awards for not only the Best ModChart of the Year, but also *THE* Map of the Year!
+Surely you've heard of Swifter!? You know... one of the mappers involved in the (as of writing this article) #2 map of all time with a whopping 16,000 upvotes: [{Modchart} acloudyskye - Somewhere Out There](https://beatsaver.com/maps/1e6ff). This map won in the 2021 BeastSaber Mapping Awards for not only the Best ModChart of the Year, but also _THE_ Map of the Year!
 
 !youtube\[rphHsDxJbpg]
 \
-*Video playthrough of Somewhere Out There*
+_Video playthrough of Somewhere Out There_
 
 ### Check out their socials!
 
-* [BeatSaver](https://beatsaver.com/profile/4284246)
-* [Twitter](https://twitter.com/Swifter1243)
-* [YouTube](https://www.youtube.com/@SwifterYT)
-* [Twitch](https://www.twitch.tv/swifter1243)
-* [GitHub](https://www.github.com/Swifter1243)
+- [BeatSaver](https://beatsaver.com/profile/4284246)
+- [Twitter](https://twitter.com/Swifter1243)
+- [YouTube](https://www.youtube.com/@SwifterYT)
+- [Twitch](https://www.twitch.tv/swifter1243)
+- [GitHub](https://www.github.com/Swifter1243)
 
-![Swifter](/uploads/swifterbanner.png "Swifter")
+![Swifter](/uploads/swifterbanner.png 'Swifter')
 
 ### Q: Tell us who you are! Your name, how long you’ve been playing Beat Saber, what got you started playing, what got you started modding, hobbies, etc.
 
@@ -61,7 +64,7 @@ As far as favorite maps that include Noodle Extensions go, I have to say Somewhe
 
 !youtube\[mhrNe2rhrYs]
 \
-*Video playthrough of \[Modchart] DJ TECHNORCH - Love Love Love You I Love You (Eye's by Eyes Remix)*
+_Video playthrough of \[Modchart] DJ TECHNORCH - Love Love Love You I Love You (Eye's by Eyes Remix)_
 
 ### Q: What was your role in Extra Sensory II? Give us a deeper dive into how you became involved, the commitment to keeping progress moving, were there any struggles? (Can also focus on the good qualities of the process instead of struggles. Were there any huge accomplishments where everyone worked together?)
 
@@ -91,8 +94,8 @@ But guess what, I'll do that until the day I die. I'm really excited to see how 
 
 <br />
 
-- - -
+---
 
 **We'd like to thank Swifter for taking the time to answer our questions! Be sure to check out the interviews with the rest of the team!**
 \
-**This interview was lightly edited for spelling, grammar, formatting, and clarity.*
+\*_This interview was lightly edited for spelling, grammar, formatting, and clarity._

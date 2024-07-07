@@ -7,8 +7,11 @@ homepageText: TheGoodBoi is a member of TotalBS and a Verified Mapper with 38
   maps published as of writing this article. They're from the US! Check out this
   article to learn more about TheGoodBoi!
 image: /static/uploads/posts/sywwner9_400x400.png
+authors:
+  - '4285984'
 showInPostListing: true
 ---
+
 [Go back to **"This is Extra Sensory II"**](/posts/this-is-extra-sensory-ii)
 
 # Interview with TheGoodBoi
@@ -19,16 +22,16 @@ Whether you're new to the community or a seasoned player, you probably know of T
 
 !youtube\[d-PPKvEo83s]
 \
-*Check out a preview of their new version of Up & Down!*
+_Check out a preview of their new version of Up & Down!_
 
 ### Check out their socials!
 
-* [BeatSaver](https://beatsaver.com/profile/4284638)
-* [Twitter](https://twitter.com/thegoodboi_)
-* [YouTube](https://www.youtube.com/@TheGoodBoi)
-* [GitHub](https://www.github.com/TheGoodBoi411)
+- [BeatSaver](https://beatsaver.com/profile/4284638)
+- [Twitter](https://twitter.com/thegoodboi_)
+- [YouTube](https://www.youtube.com/@TheGoodBoi)
+- [GitHub](https://www.github.com/TheGoodBoi411)
 
-![TheGoodBoi](/uploads/thegoodboibanner.png "TheGoodBoi")
+![TheGoodBoi](/uploads/thegoodboibanner.png 'TheGoodBoi')
 
 ### Q: Tell us who you are! Your name, how long you’ve been playing Beat Saber, what got you started playing, what got you started modding, hobbies, etc.
 
@@ -120,8 +123,8 @@ I definitely have to highlight [Mawntee](https://beatsaver.com/profile/4285959) 
 
 <br />
 
-- - -
+---
 
 **We'd like to thank TheGoodBoi for taking the time to answer our questions! Be sure to check out the interviews with the rest of the team!**
 \
-**This interview was lightly edited for spelling, grammar, formatting, and clarity.*
+\*_This interview was lightly edited for spelling, grammar, formatting, and clarity._
