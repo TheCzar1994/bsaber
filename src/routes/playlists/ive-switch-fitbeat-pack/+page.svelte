@@ -4,48 +4,43 @@
 </script>
 
 <MetaHead
-  title="Fox Stevenson Pack"
-  description="Alphabeat presents their newest pack, featuring songs by Fox Stevenson (formerly Stan SB / Stan SSB)!"
-  imageUrl="/uploads/playlists/fox-red.png"
+  title="IVE Switch Fitbeat Pack"
+  description="Don't skip leg day, it's IVE's newest album Switch. Time to train those thigh muscles and get a good butt with IVE's amazing songs."
+  imageUrl="/uploads/playlists/ive-switch.jpg"
 />
 
 <section class="hero">
   <div class="content">
     <div class="card-container">
       <div class="card">
-        <a href="https://beatsaver.com/profile/5122" target="_blank"
-          ><img src="/uploads/playlists/alphabeat1.jpg" alt="Alphabeat" />
+        <a href="https://beatsaver.com/profile/145971" target="_blank"
+          ><img src="/uploads/playlists/bellus.png" alt="Bellus" />
         </a>
       </div>
     </div>
     <div class="uploader-container">
-      <a class="uploader" href="https://beatsaver.com/profile/5122" target="_blank">Alphabeat</a>
-      Presents
+      <a class="uploader" href="https://beatsaver.com/profile/145971" target="_blank">Bellus</a> & others
+      Present
     </div>
     <div class="body">
-      <h1>Fox Stevenson Pack</h1>
+      <h1>IVE Switch Fitbeat Pack</h1>
       <p>
-        Alphabeat presents their newest pack, featuring songs by Fox Stevenson (formerly Stan SB /
-        Stan SSB)!
-        <br />
-        He is an English singer-songwriter, DJ and producer of bass music, mostly drum and bass and glitch
-        hop.
-        <br />
-        We hope you enjoy!
+        Don't skip leg day, it's IVE's newest album Switch. Time to train those thigh muscles and
+        get a good butt with IVE's amazing songs.
       </p>
     </div>
     <div class="buttons">
-      <a class="btn" href="https://api.beatsaver.com/playlists/id/581099/download" target="_blank"
+      <a class="btn" href="https://api.beatsaver.com/playlists/id/528396/download" target="_blank"
         >ZIP DOWNLOAD</a
       >
-      <a class="btn2" href="https://beatsaver.com/playlists/581099" target="_blank">BEATSAVER</a>
+      <a class="btn2" href="https://beatsaver.com/playlists/528396" target="_blank">BEATSAVER</a>
     </div>
   </div>
 </section>
 <br />
 <h2>Download the maps below!</h2>
 <hr class="fade" />
-<MapCards playlistId="581099" />
+<MapCards playlistId="528396" />
 
 <style>
   .hero {
@@ -61,7 +56,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url('/uploads/playlists/fox-red.png') no-repeat center center;
+    background: url('/uploads/playlists/ive-switch.jpg') no-repeat center center;
     background-size: cover;
     filter: brightness(30%) blur(5px);
     z-index: -1;
@@ -88,7 +83,7 @@
   }
   .card {
     height: 700px;
-    background: rgba(0, 0, 0, 0);
+    background: rgba(48, 208, 232, 0);
     flex: 1;
     width: 45rem;
   }
@@ -149,12 +144,12 @@
   }
 
   .btn:hover {
-    background-color: #4c0000;
+    background-color: #414160;
     text-decoration: none;
     color: white;
   }
   .btn2:hover {
-    background-color: #4c0000;
+    background-color: #122975;
     text-decoration: none;
     color: white;
   }
@@ -165,8 +160,8 @@
   }
 
   .btn2 {
-    background-color: #fffdfd;
-    color: black;
+    background-color: #3951ab;
+    color: white;
   }
 
   hr.fade {
