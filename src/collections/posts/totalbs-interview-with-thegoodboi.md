@@ -6,7 +6,7 @@ publish: 2024-03-19T00:00:00.000Z
 homepageText: TheGoodBoi is a member of TotalBS and a Verified Mapper with 38
   maps published as of writing this article. They're from the US! Check out this
   article to learn more about TheGoodBoi!
-image: /static/uploads/posts/sywwner9_400x400.png
+image: /static/uploads/posts/exsii/totalbslogo.png
 authors:
   - '4285984'
 showInPostListing: true
@@ -31,7 +31,7 @@ _Check out a preview of their new version of Up & Down!_
 - [YouTube](https://www.youtube.com/@TheGoodBoi)
 - [GitHub](https://www.github.com/TheGoodBoi411)
 
-![TheGoodBoi](/uploads/thegoodboibanner.png 'TheGoodBoi')
+![TheGoodBoi](/uploads/posts/exsii/thegoodboibanner.png 'TheGoodBoi')
 
 ### Q: Tell us who you are! Your name, how long you’ve been playing Beat Saber, what got you started playing, what got you started modding, hobbies, etc.
 
@@ -43,7 +43,7 @@ It wasn't until summer of 2019 that I figured out how to install mods and custom
 
 Also, if you'd like to ask about pets, I have a dog. She's cute. No, I will not e*LAB*orate.
 \
-![TheGoodBoi's Doggo](/uploads/thegoodboidog.jpg "TheGoodBoi's Doggo")
+![TheGoodBoi's Doggo](/uploads/posts/exsii/thegoodboidog.jpg "TheGoodBoi's Doggo")
 
 <br />
 
@@ -82,7 +82,7 @@ Choosing a favorite Noodle map is hard, but I'd have to go for Mawntee's map: [D
 **A:** I made two maps for the event, one of which was used in the teaser, which is sick. I guess you could say the maps introduced and revealed quite a few bugs to fix, helping a bit with development. I also tested and gave feedback on several maps made by others, and I even made the EXSII banner logo used for the event:
 
 <p align="center">
-    <img src="/uploads/tbs-exsii-srt.png">
+    <img src="/uploads/posts/exsii/tbs-exsii-srt.png">
 </p>
 
 I got involved in EXSII because I was doing Vivify stuff and sharing it with TotalBS (TBS), a group that I got roped into after my first NE map made its rounds in the community. A fun fact about when I first got into the secret TBS club is that there was a double-secret TBS club, the place where the first talks of a sight-read tournament were happening. Eventually getting into double-secret status felt like finding out your friend group had a separate and more active group chat with everyone except you. Good thing this hierarchy doesn't exist anymore! At least I think so, perhaps there's a triple-secret I don't know about, hmm…

@@ -4,7 +4,7 @@ section: articles
 category: interview
 publish: 2024-03-19T00:00:00.000Z
 homepageText: ''
-image: /static/uploads/posts/sywwner9_400x400.png
+image: /static/uploads/posts/exsii/totalbslogo.png
 authors:
   - '4285984'
 showInPostListing: true
@@ -18,7 +18,7 @@ showInPostListing: true
 
 Since the groundbreaking release of Noodle Extensions into the Custom Beat Saber Community in about 2020, hundreds of high quality maps have pushed the limits on what you can do within the game and not only alter the environment, but the entire block slashing experience! [Take a look at the maps that shaped the initial release of Extra Sensory I here](/playlists/extra-sensory-i).
 
-![gifofnoods](/uploads/gifofnoods.gif 'Examples of maps made with Noodle Extensions')
+![gifofnoods](/uploads/posts/exsii/gifofnoods.gif 'Examples of maps made with Noodle Extensions')
 
 During the 2023 Beasties Awards Show, Mawntee, who is a member of the TotalBS team, unveiled a teaser of the work being done to create the latest groundbreaking mod known as Extra Sensory II. Following this teaser, we got a chance to talk with and interview several members of the TotalBS team to learn more about them and their passion with the Custom Beat Saber Community. In this multi-part interview, we will be sharing details about what it took to get to the release, as well as some sneak peaks into the development.
 

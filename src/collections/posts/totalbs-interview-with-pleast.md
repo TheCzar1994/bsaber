@@ -4,7 +4,7 @@ section: articles
 category: interview
 publish: 2024-03-19T00:00:00.000Z
 homepageText: ''
-image: /static/uploads/posts/sywwner9_400x400.png
+image: /static/uploads/posts/exsii/totalbslogo.png
 authors:
   - '4285984'
 showInPostListing: true

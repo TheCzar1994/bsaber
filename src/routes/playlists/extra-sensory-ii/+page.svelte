@@ -4,38 +4,41 @@
 </script>
 
 <MetaHead
-  title="Extra Sensory II"
-  description="EXTRA SENSORY II - The original Extra Sensory event pack release which debuted in 2020"
+  title="Extra Sensory I"
+  description="EXTRA SENSORY I - The original Extra Sensory event pack release which debuted in 2020"
   imageUrl="/uploads/playlists/totalbslogo1.png"
 />
 
 <section class="hero">
   <div class="content">
-    <p>
-      <img src="/uploads/playlists/totalbslogo1.png" alt="TotalBS Logo" width="100" height="100" />
-    </p>
-    <p>TOTAL BS PRESENTS</p>
-    <h1>EXTRA SENSORY II</h1>
-    <p>
-      Time for something you've never seen before!
-      <br />
-      <br />
-      The Extra Sensory event saw the release of five new maps that use the game in new, creative ways
-      that will flip how you play on its head. This song pack contains all of them in one place for you!
-      From hell to cities, hitting bombs and notes that can't sit still, you're sure to find a new unexpected
-      experience here.
-    </p>
+    <div class="card-container">
+      <div class="card">
+        <img src="/uploads/playlists/totalbslogo1.png" alt="TotalBS" />
+      </div>
+    </div>
+    <div class="uploader-container">TotalBS Presents</div>
+    <div class="body">
+      <h1>Extra Sensory II</h1>
+      <p>
+        Time for something you've never seen before!
+        <br />
+        The Extra Sensory event saw the release of five new maps that use the game in new, creative ways
+        that will flip how you play on its head. This song pack contains all of them in one place for
+        you! From hell to cities, hitting bombs and notes that can't sit still, you're sure to find a
+        new unexpected experience here.
+      </p>
+    </div>
     <div class="buttons">
       <a class="btn" href="https://api.beatsaver.com/playlists/id/50/download" target="_blank"
-        >DOWNLOAD</a
+        >DOWNLOAD PLAYLIST</a
       >
       <a
-        class="btn2"
+        class="btn"
         href="https://beatmods.com/uploads/6600b82cdfb5962c5bb29d42/universal/NoodleExtensions-1.6.1.zip"
         target="_blank">NOODLE EXTENSIONS</a
       >
       <a
-        class="btn3"
+        class="btn"
         href="https://beatmods.com/uploads/6600b865dfb5962c5bb29d45/universal/Chroma-2.8.1.zip"
         target="_blank">CHROMA</a
       >
@@ -45,41 +48,62 @@
 <br />
 <h2>Download the maps below!</h2>
 <hr class="fade" />
-<!--ADD THE PLAYLIST ID IN LATER-->
-<MapCards playlistId="" />
+<MapCards playlistId="50" />
 
 <style lang="scss">
-  @import 'src/scss/variables';
   .hero {
     position: relative;
-    min-height: 55rem;
+    min-height: 45rem;
     height: 70vh;
     background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: -28px;
+    margin-top: -20px;
     overflow: hidden;
   }
-
   .hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background: url('/uploads/playlists/totalbsbackground.png') no-repeat center center;
+    background: url('/uploads/posts/exsii/gifofnoods.gif') no-repeat center center;
     background-size: cover;
     filter: brightness(30%) blur(5px);
     z-index: -1;
   }
 
   .content {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     z-index: 1;
-    bottom: 10rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-container {
+    display: flex;
+    gap: 2.5rem;
+    height: 200px;
+    transform: scale(15%);
+    margin-top: -5rem;
+  }
+  .card {
+    height: 700px;
+    background: rgba(0, 0, 0, 0);
+    flex: 1;
+    width: 45rem;
+  }
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+  }
+
+  .body {
+    padding: 0 0.5rem 2.5rem 0.5rem;
   }
 
   h1 {
@@ -87,7 +111,7 @@
     width: 100%;
     justify-content: center;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   @media (max-width: 678px) {
     h1 {
@@ -101,54 +125,32 @@
   }
 
   p {
-    margin: 0.5rem 1rem 0;
+    margin: 0.5rem 0.5rem 0;
   }
-  .btn,
-  .btn2,
-  .btn3 {
-    border: none;
+
+  .buttons {
+    display: grid;
+    gap: 0.5rem;
+    justify-content: center;
+    width: 100%;
+  }
+  .btn {
     padding: 12px 30px;
     cursor: pointer;
     font-size: 15px;
-    position: absolute;
     text-align: center;
-    width: 165px;
-    justify-content: center;
     transition: background-color 0.5s ease;
     border-radius: 5px;
     font-weight: bolder;
+    width: 165px;
+    background-color: #0cc0c9;
+    color: white;
   }
 
-  .btn:hover,
-  .btn2:hover,
-  .btn3:hover {
+  .btn:hover {
     background-color: #5d5d8b;
     text-decoration: none;
     color: white;
-  }
-
-  .btn {
-    background-color: #0cc0c9;
-    color: white;
-    top: 125%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .btn2 {
-    background-color: #0cc0c9;
-    color: white;
-    top: 140%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .btn3 {
-    background-color: #0cc0c9;
-    color: white;
-    top: 155%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 
   hr.fade {

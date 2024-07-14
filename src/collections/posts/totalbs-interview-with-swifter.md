@@ -6,7 +6,7 @@ publish: 2024-03-19T00:00:00.000Z
 homepageText: "Surely you've heard of Swifter!? You know... one of the mappers
   involved in the (as of writing this article) #2 map of all time with a
   whopping 16,000 upvotes. Check out this article to learn more about Swifter!"
-image: /static/uploads/posts/sywwner9_400x400.png
+image: /static/uploads/posts/exsii/totalbslogo.png
 authors:
   - '4285984'
 showInPostListing: true
@@ -32,7 +32,7 @@ _Video playthrough of Somewhere Out There_
 - [Twitch](https://www.twitch.tv/swifter1243)
 - [GitHub](https://www.github.com/Swifter1243)
 
-![Swifter](/uploads/swifterbanner.png 'Swifter')
+![Swifter](/uploads/posts/exsii/swifterbanner.png 'Swifter')
 
 ### Q: Tell us who you are! Your name, how long you’ve been playing Beat Saber, what got you started playing, what got you started modding, hobbies, etc.
 

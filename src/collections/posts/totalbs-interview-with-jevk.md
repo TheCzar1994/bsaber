@@ -7,7 +7,7 @@ homepageText: As a part of the release of Extra Sensory II, we got a chance to
   interview Jevk who is a member of TotalBS, and a Verified Mapper with 54 maps
   published as of writing this article. Check out this article to learn more
   about Jevk!
-image: /static/uploads/posts/sywwner9_400x400.png
+image: /static/uploads/posts/exsii/totalbslogo.png
 authors:
   - '4285984'
 showInPostListing: true
@@ -34,7 +34,7 @@ _Preview of Camellia - GHOUL_
 - [ScoreSaber](https://scoresaber.com/u/76561198100136966)
 - [GitHub](https://www.github.com/jevk)
 
-![About Jevk](/uploads/jevkbanner.png 'About Jevk')
+![About Jevk](/uploads/posts/exsii/jevkbanner.png 'About Jevk')
 
 ### Q: Tell us who you are! Your name, how long you’ve been playing Beat Saber, what got you started playing, what got you started modding, hobbies, etc.
 
