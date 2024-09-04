@@ -91,8 +91,8 @@
           href: '/the-beastsaber-mapping-awards',
         },
         {
-          name: 'Voting',
-          href: 'https://forms.gle/v69wKinCfZzVHfZ17',
+          name: 'Submission Form',
+          href: 'https://mappingawards.saeraphinx.dev/',
         },
         {
           name: '2023 Winners',
