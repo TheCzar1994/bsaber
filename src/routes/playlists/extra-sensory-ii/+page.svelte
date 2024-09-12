@@ -1,6 +1,10 @@
 <script>
   import MetaHead from '$lib/MetaHead.svelte'
   import MapCards from '$lib/MapCards.svelte'
+  import Fa from 'svelte-fa/src/fa.svelte'
+  import { faDownload } from '@fortawesome/free-solid-svg-icons'
+  import { faCloudDownloadAlt } from '@fortawesome/free-solid-svg-icons'
+  import { faMap } from '@fortawesome/free-solid-svg-icons'
 </script>
 
 <MetaHead
@@ -22,31 +26,47 @@
       <p>
         Time for something you've never seen before!
         <br />
+        <br />
         The Extra Sensory event saw the release of five new maps that use the game in new, creative ways
         that will flip how you play on its head. This song pack contains all of them in one place for
         you! From hell to cities, hitting bombs and notes that can't sit still, you're sure to find a
         new unexpected experience here.
+        <br />
+        <br />
+        <a class="uploader" href="/posts/this-is-extra-sensory-ii"
+          >Learn more about the TotalBS Team!</a
+        >
       </p>
     </div>
-    <div class="buttons">
-      <a class="btn" href="https://api.beatsaver.com/playlists/id/50/download" target="_blank"
-        >DOWNLOAD PLAYLIST</a
+    <div class="zip-one">
+      <a
+        class="zip"
+        href="https://api.beatsaver.com/playlists/id/50/download"
+        title="Zip Download via BeatSaver"><Fa icon={faDownload} /></a
       >
+      <a
+        class="one"
+        href="bsplaylist://playlist/https://api.beatsaver.com/playlists/id/50/download"
+        title="OneClick&trade; Install via BeatSaver and ModAssistant"
+        ><Fa icon={faCloudDownloadAlt} /></a
+      >
+    </div>
+    <div class="buttons">
       <a
         class="btn"
         href="https://beatmods.com/uploads/6600b82cdfb5962c5bb29d42/universal/NoodleExtensions-1.6.1.zip"
-        target="_blank">NOODLE EXTENSIONS</a
+        title="Archived Noodle Extensions Mod - NOT UP TO DATE">MOD 1?</a
       >
       <a
         class="btn"
         href="https://beatmods.com/uploads/6600b865dfb5962c5bb29d45/universal/Chroma-2.8.1.zip"
-        target="_blank">CHROMA</a
+        title="Archived Chroma Mod - NOT UP TO DATE">MOD 2?</a
       >
     </div>
   </div>
 </section>
 <br />
-<h2>Download the maps below!</h2>
+<h2><Fa icon={faMap} />&nbsp;Download the maps below!</h2>
 <hr class="fade" />
 <MapCards playlistId="50" />
 
@@ -102,8 +122,13 @@
     border-radius: 25px;
   }
 
+  .uploader {
+    color: white;
+    font-weight: 1000;
+  }
+
   .body {
-    padding: 0 0.5rem 2.5rem 0.5rem;
+    padding-bottom: 2.5rem;
   }
 
   h1 {
@@ -128,25 +153,49 @@
     margin: 0.5rem 0.5rem 0;
   }
 
-  .buttons {
-    display: grid;
-    gap: 0.5rem;
-    justify-content: center;
-    width: 100%;
+  .zip-one {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding-bottom: 0.3rem;
   }
-  .btn {
-    padding: 12px 30px;
+  .zip,
+  .one {
+    padding: 12px;
     cursor: pointer;
     font-size: 15px;
     text-align: center;
     transition: background-color 0.5s ease;
     border-radius: 5px;
     font-weight: bolder;
-    width: 165px;
+    width: 84px;
     background-color: #0cc0c9;
     color: white;
   }
-
+  .zip:hover,
+  .one:hover {
+    background-color: #5d5d8b;
+    text-decoration: none;
+    color: white;
+  }
+  .buttons {
+    display: grid;
+    gap: 0.3rem;
+    justify-content: center;
+    width: 100%;
+  }
+  .btn {
+    padding: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    transition: background-color 0.5s ease;
+    border-radius: 5px;
+    font-weight: bolder;
+    width: 197px;
+    background-color: #0cc0c9;
+    color: white;
+  }
   .btn:hover {
     background-color: #5d5d8b;
     text-decoration: none;
