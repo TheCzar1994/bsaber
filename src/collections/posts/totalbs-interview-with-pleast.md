@@ -2,7 +2,7 @@
 title: TotalBS - Interview with Pleast
 section: articles
 category: interview
-publish: 2024-03-19T00:00:00.000Z
+publish: 2024-11-19T00:00:00.000Z
 homepageText: ''
 image: /static/uploads/posts/exsii/totalbslogo.png
 authors:

@@ -2,7 +2,7 @@
 title: TotalBS - Interview with Jevk
 section: articles
 category: interview
-publish: 2024-03-19T00:00:00.000Z
+publish: 2024-11-19T00:00:00.000Z
 homepageText: As a part of the release of Extra Sensory II, we got a chance to
   interview Jevk who is a member of TotalBS, and a Verified Mapper with 54 maps
   published as of writing this article. Check out this article to learn more
@@ -16,8 +16,6 @@ showInPostListing: true
 [Go back to **"This is Extra Sensory II"**](/posts/this-is-extra-sensory-ii)
 
 # Interview with Jevk
-
-## Jevk is a member of TotalBS, and a Verified Mapper with 54 maps published as of writing this article. They're also from Finland!
 
 You might've heard of Jevk around the community; especially more recently as the Mappers' Choice & Community Choice Winner of Best Modchart in the 2023 BeastSaber Mapping Awards. You can see their award-winning map ["Camellia - GHOUL"](https://beatsaver.com/maps/31809) here:
 
@@ -34,7 +32,7 @@ _Preview of Camellia - GHOUL_
 - [ScoreSaber](https://scoresaber.com/u/76561198100136966)
 - [GitHub](https://www.github.com/jevk)
 
-![About Jevk](/uploads/posts/exsii/jevkbanner.png 'About Jevk')
+![About Jevk](/uploads/posts/exsii/jevkbanner2.png 'About Jevk')
 
 ### Q: Tell us who you are! Your name, how long you’ve been playing Beat Saber, what got you started playing, what got you started modding, hobbies, etc.
 

@@ -1,8 +1,8 @@
 ---
 title: This is Extra Sensory II
 section: articles
-category: interview
-publish: 2024-03-19T00:00:00.000Z
+category: event
+publish: 2024-11-19T00:00:00.000Z
 homepageText: ''
 image: /static/uploads/posts/exsii/totalbslogo.png
 authors:
@@ -25,14 +25,37 @@ During the 2023 Beasties Awards Show, Mawntee, who is a member of the TotalBS te
 ### Take a look at the trailer here!
 
 !youtube[NHMWUECgqEo]
+<br />
+<span class="notes">We probably want to update this to be the release video? Will need the video code/ID</span><!-- Update to newer trailer -->
 
-After talking with the people over at TotalBS, I can tell you these people are genuinely ambitious about making the best experience possible for players of Beat Saber! It's been an absolute pleasure getting to hear their stories - but also to have the opportuinty to present this to everyone for them!
+After talking with the people over at TotalBS, I can tell you these people are genuinely ambitious about making the best experience possible for players of Beat Saber! It's been an absolute pleasure getting to hear their stories - but also to have the opportuinty to help present this to everyone for them!
+
+<span class="notes">Which link do we prefer below? The standard link or a button?</span>
 
 ## [Check out the Extra Sensory II Release Pack!](/playlists/extra-sensory-ii)
 
+<div class="buttons">
+  <a
+    class="btn"
+    href="https://beatmods.com/uploads/6600b82cdfb5962c5bb29d42/universal/NoodleExtensions-1.6.1.zip"
+    title="PLACEHOLDER!!!">CHECK OUT THE EXTRA SENSORY II PACK</a
+  >
+</div>
+<br />
+<hr />
+<br />
+
+### About the event here?
+
+<span class="notes">I need info on the event. When, where, what exactly does it consist of, can anyone join, how?</span>
+
+<br />
+<hr />
 <br />
 
 ## Let's Get To Some Questions!
+
+<span class="notes">We could remove this if we want but I do think we could include some good info, particularly tutorial, or where people can go to get help, etc</span>
 
 ### Who is behind the TotalBS team?
 
@@ -50,7 +73,7 @@ As mentioned earlier, there are several community members on the TotalBS team, s
 
 <br />
 
-## Learn more about the Community Members behind TotalBS!
+## Learn more about some of the Community Members behind TotalBS!
 
 - [Interview with Aeroluna](/posts/totalbs-interview-with-aeroluna)
 - [Interview with Jevk](/posts/totalbs-interview-with-jevk)
@@ -58,3 +81,34 @@ As mentioned earlier, there are several community members on the TotalBS team, s
 - [Interview with Pleast](/posts/totalbs-interview-with-pleast)
 - [Interview with Swifter](/posts/totalbs-interview-with-swifter)
 - [Interview with TheGoodBoi](/posts/totalbs-interview-with-thegoodboi)
+
+<style>
+.notes {
+  color: red;
+  font-weight: bolder;
+}
+  .buttons {
+    display: grid;
+    gap: 0.3rem;
+    justify-content: center;
+    width: 100%;
+  }
+  .btn {
+    padding: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    transition: background-color 0.5s ease;
+    border-radius: 5px;
+    font-weight: bolder;
+    width: 197px;
+    background-color: #880000;
+    color: white;
+    width: 350px;
+  }
+  .btn:hover {
+    background-color: #002b88;
+    text-decoration: none;
+    color: white;
+  }
+  </style>

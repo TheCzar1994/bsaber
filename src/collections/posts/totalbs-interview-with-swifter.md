@@ -2,7 +2,7 @@
 title: TotalBS - Interview with Swifter
 section: articles
 category: interview
-publish: 2024-03-19T00:00:00.000Z
+publish: 2024-11-19T00:00:00.000Z
 homepageText: "Surely you've heard of Swifter!? You know... one of the mappers
   involved in the (as of writing this article) #2 map of all time with a
   whopping 16,000 upvotes. Check out this article to learn more about Swifter!"
@@ -15,8 +15,6 @@ showInPostListing: true
 [Go back to **"This is Extra Sensory II"**](/posts/this-is-extra-sensory-ii)
 
 # Interview with Swifter
-
-## Swifter is a member of TotalBS, and a Verified Mapper with 56 maps published as of writing this article. They're also from Canada!
 
 Surely you've heard of Swifter!? You know... one of the mappers involved in the (as of writing this article) #2 map of all time with a whopping 16,000 upvotes: [{Modchart} acloudyskye - Somewhere Out There](https://beatsaver.com/maps/1e6ff). This map won in the 2021 BeastSaber Mapping Awards for not only the Best ModChart of the Year, but also _THE_ Map of the Year!
 
@@ -32,7 +30,7 @@ _Video playthrough of Somewhere Out There_
 - [Twitch](https://www.twitch.tv/swifter1243)
 - [GitHub](https://www.github.com/Swifter1243)
 
-![Swifter](/uploads/posts/exsii/swifterbanner.png 'Swifter')
+![Swifter](/uploads/posts/exsii/swifterbanner2.png 'Swifter')
 
 ### Q: Tell us who you are! Your name, how long you’ve been playing Beat Saber, what got you started playing, what got you started modding, hobbies, etc.
 

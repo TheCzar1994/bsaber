@@ -2,7 +2,7 @@
 title: TotalBS - Interview with TheGoodBoi
 section: articles
 category: interview
-publish: 2024-03-19T00:00:00.000Z
+publish: 2024-11-19T00:00:00.000Z
 homepageText: TheGoodBoi is a member of TotalBS and a Verified Mapper with 38
   maps published as of writing this article. They're from the US! Check out this
   article to learn more about TheGoodBoi!
@@ -15,8 +15,6 @@ showInPostListing: true
 [Go back to **"This is Extra Sensory II"**](/posts/this-is-extra-sensory-ii)
 
 # Interview with TheGoodBoi
-
-## TheGoodBoi is a member of TotalBS and a Verified Mapper with 38 maps published as of writing this article. They're from the US!
 
 Whether you're new to the community or a seasoned player, you probably know of TheGoodBoi for their classic [Up & Down](https://beatsaver.com/maps/11cf8) Noodle Extensions map which had garnered over 12,760 upvotes by the time of this interview! They have a [new version](https://beatsaver.com/maps/2c2f4) that they collabed with SuperMemer417 which has received over 1,700 upvotes!
 
@@ -31,7 +29,7 @@ _Check out a preview of their new version of Up & Down!_
 - [YouTube](https://www.youtube.com/@TheGoodBoi)
 - [GitHub](https://www.github.com/TheGoodBoi411)
 
-![TheGoodBoi](/uploads/posts/exsii/thegoodboibanner.png 'TheGoodBoi')
+![TheGoodBoi](/uploads/posts/exsii/thegoodboibanner2.png 'TheGoodBoi')
 
 ### Q: Tell us who you are! Your name, how long you’ve been playing Beat Saber, what got you started playing, what got you started modding, hobbies, etc.
 
