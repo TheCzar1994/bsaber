@@ -14,7 +14,7 @@ showInPostListing: true
 
 > Before we begin, the BeastSaber Team would like to give a huge "THANK YOU" to everyone at TotalBS! In particular and most importantly **[Aeroluna](https://beatsaver.com/profile/4284266)** who practically spearheaded this whole project and is a huge part of who the community can thank for this massive undertaking.\
 > \
-> We'd also like to thank [Jevk](https://beatsaver.com/profile/4284636), [Mawntee](https://beatsaver.com/profile/4285959), [Pleast](https://beatsaver.com/profile/4285189), [Swifter](https://beatsaver.com/profile/4284246), and [TheGoodBoi](https://beatsaver.com/profile/4284638) for their contributions to the project, as well as making these interviews about the project possible!
+> We'd also like to thank [Mawntee](https://beatsaver.com/profile/4285959), [Swifter](https://beatsaver.com/profile/4284246), and [TheGoodBoi](https://beatsaver.com/profile/4284638) for their contributions to the project, as well as making these interviews about the project possible!
 
 Since the groundbreaking release of Noodle Extensions into the Custom Beat Saber Community in about 2020, hundreds of high quality maps have pushed the limits on what you can do within the game and not only alter the environment, but the entire block slashing experience! [Take a look at the maps that shaped the initial release of Extra Sensory I here](/playlists/extra-sensory-i).
 
@@ -30,24 +30,38 @@ During the 2023 Beasties Awards Show, Mawntee, who is a member of the TotalBS te
 
 After talking with the people over at TotalBS, I can tell you these people are genuinely ambitious about making the best experience possible for players of Beat Saber! It's been an absolute pleasure getting to hear their stories - but also to have the opportuinty to help present this to everyone for them!
 
-<span class="notes">Which link do we prefer below? The standard link or a button?</span>
+<hr />
+<br />
 
-## [Check out the Extra Sensory II Release Pack!](/playlists/extra-sensory-ii)
+## About the Sight-Read Event! <a href="#sight-read-event" style="text-decoration:none;">🔗</a> {$sight-read-event}
+
+**Who can play:** Any PC Beat Saber player!
+<br />
+\*Currently, the Synapse Mod is only available on the PC version of Beat Saber. Remember, if you own the Oculus version, you can get a free PC version through the Oculus PC app and connect your headset!
+
+**What is it:**
+
+- Event will be a BR elimination style sight-read tournament, focused around maps with silly goofy gameplay gimmicks and visuals that haven't been seen before in Beat Saber
+- The event is networked so that all players in the event lobby will be playing the same maps at the same time
+- First map will be a freebie, nobody is getting eliminated
+- For each following map, a chunk of players will be eliminated until the last map in the event will decide who the final winner is
+- An eliminated player will still be able to participate in the event, their names will just be greyed out and their scores will be separated from the rest
+
+**Where can I watch:**
+
+**Where can I participate:**
+
+**When:** December ??, 2024
+
+**What do I need:** Download the Synapse mod below! This mod will auto-update any mods you need when you join
 
 <div class="buttons">
   <a
     class="btn"
     href="https://beatmods.com/uploads/6600b82cdfb5962c5bb29d42/universal/NoodleExtensions-1.6.1.zip"
-    title="PLACEHOLDER!!!">CHECK OUT THE EXTRA SENSORY II PACK</a
+    title="Download Synapse Mod for the Event">GET THE SYNAPSE MOD</a
   >
 </div>
-<br />
-<hr />
-<br />
-
-### About the event here?
-
-<span class="notes">I need info on the event. When, where, what exactly does it consist of, can anyone join, how?</span>
 
 <br />
 <hr />
@@ -72,13 +86,13 @@ As mentioned earlier, there are several community members on the TotalBS team, s
 ### Where can we keep up with the latest on the project and the release date?
 
 <br />
+<hr />
+<br />
 
 ## Learn more about some of the Community Members behind TotalBS!
 
 - [Interview with Aeroluna](/posts/totalbs-interview-with-aeroluna)
-- [Interview with Jevk](/posts/totalbs-interview-with-jevk)
 - [Interview with Mawntee](/posts/totalbs-interview-with-mawntee)
-- [Interview with Pleast](/posts/totalbs-interview-with-pleast)
 - [Interview with Swifter](/posts/totalbs-interview-with-swifter)
 - [Interview with TheGoodBoi](/posts/totalbs-interview-with-thegoodboi)
 
@@ -104,7 +118,6 @@ As mentioned earlier, there are several community members on the TotalBS team, s
     width: 197px;
     background-color: #880000;
     color: white;
-    width: 350px;
   }
   .btn:hover {
     background-color: #002b88;
