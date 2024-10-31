@@ -5,6 +5,8 @@ bio: >-
   Hi! 👋 I helped with a lot of the content side of BeastSaber 2.0!
 
 
+
+
   Want to help out and write articles of your own? Reach out to me on Discord if you're in the know with cool things happening around the custom Beat Saber community!
 socialLinks:
   - platform: YouTube
