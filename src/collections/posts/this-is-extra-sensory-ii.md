@@ -95,6 +95,8 @@ As mentioned earlier, there are several community members on the TotalBS team, s
 - [Interview with Mawntee](/posts/totalbs-interview-with-mawntee)
 - [Interview with Swifter](/posts/totalbs-interview-with-swifter)
 - [Interview with TheGoodBoi](/posts/totalbs-interview-with-thegoodboi)
+- [Interview with Nasafrasa](/posts/totalbs-interview-with-nasafrasa)
+- [Interview with Chaimzy](/posts/totalbs-interview-with-chaimzy)
 
 <style>
 .notes {

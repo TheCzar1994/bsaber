@@ -15,21 +15,49 @@ showInPostListing: true
 [Go back to **"This is Extra Sensory II"**](/posts/this-is-extra-sensory-ii)
 
 <div class="profile">
-  <div class="image">
-    <img style="border-radius: 50%; width: 92px; height: auto;" id="avatar" alt="avatar" />
-  </div>
-  <div class="bio">
+   <div class="image">
+      <img style="border-radius: 50%; width: 92px; height: auto;" id="avatar" alt="avatar" />
+   </div>
+   <div class="bio">
       <div class="name"><a href="https://beatsaver.com/profile/4284246" id="name"></a></div>
       <div class="status">Verified Mapper</div>
-  <div class="description" id="description"></div>
-  <hr class="break" />
-  <div class="socials">
-    <a href="https://twitter.com/Swifter1243"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a>
-    <a href="https://www.youtube.com/@SwifterYT"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="27" viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg></a>
-    <a href="https://www.twitch.tv/swifter1243"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M391.2 103.5H352.5v109.7h38.6zM285 103H246.4V212.8H285zM120.8 0 24.3 91.4V420.6H140.1V512l96.5-91.4h77.3L487.7 256V0zM449.1 237.8l-77.2 73.1H294.6l-67.6 64v-64H140.1V36.6H449.1z"/></svg></a>
-    <a href="https://www.github.com/Swifter1243"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="23.25" viewBox="0 0 496 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></a>
-    </div>
-  </div>
+      <div class="description" id="description"></div>
+      <hr class="break" />
+      <div class="bottom-row">
+      <div class="socials">
+         <a href="https://twitter.com/Swifter1243">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+         </a>
+         <a href="https://www.youtube.com/@SwifterYT">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="27" viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg>
+         </a>
+         <a href="https://www.twitch.tv/swifter1243">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M391.2 103.5H352.5v109.7h38.6zM285 103H246.4V212.8H285zM120.8 0 24.3 91.4V420.6H140.1V512l96.5-91.4h77.3L487.7 256V0zM449.1 237.8l-77.2 73.1H294.6l-67.6 64v-64H140.1V36.6H449.1z"/></svg>
+         </a>
+         <a href="https://www.github.com/Swifter1243">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="23.25" viewBox="0 0 496 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+         </a>
+      </div>
+      <div class="badges">
+        <div class="beasties">
+          <img src="/BeastSaber-logo-transformer.png" height="24" width="auto" alt="BeastSaber" />
+          <p>Beasties Award Winner</p>
+        </div>
+        <div class="bsmg">
+            <img src="/uploads/playlists/BSMG-logo.svg" height="24" width="auto" alt="BSMG" />
+            <p>BSMG Event Winner</p>
+         </div>
+         <div class="bl-ranked">
+            <img src="/beatleader-logo.svg" height="24" width="auto" alt="BeatLeader" />
+            <p>Ranked Mapper</p>
+         </div>
+         <div class="ss-ranked">
+            <img src="/scoresaber-logo.svg" height="24" width="auto" alt="ScoreSaber" />
+            <p>Ranked Mapper</p>
+         </div>
+      </div>
+      </div>
+   </div>
 </div>
 
 <br />
@@ -59,11 +87,10 @@ showInPostListing: true
     position: relative;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
     box-shadow: 0px 3px 3px black;
   }
   .profile::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -76,18 +103,33 @@ showInPostListing: true
     z-index: -1;
     border-radius: 5px;
   }
-  .break {
-    border: none;
-    height: 1px;
-    margin-bottom: 10px;
-    background: linear-gradient(90deg, #999999 0%, rgba(153, 153, 153, 0) 75%);
+
+  .image {
+    background-color: #00000050;
   }
+  @media (max-width: 512px) {
+    .image {
+      display: none;
+    }
+  }
+  .avatar {
+    padding: 5px;
+  }
+
   .bio {
+    border-radius: 5px;
+    background-color: #00000050;
+    padding: 5px 5px 5px 1rem;
     width: 100%;
   }
   .name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     font-size: 2.5rem;
     font-weight: bold;
+    align-items: center;
     a {
       color: white;
     }
@@ -104,16 +146,23 @@ showInPostListing: true
       color: white;
     }
   }
-  @media (max-width: 512px) {
-    .image {
-      display: none;
-    }
+  .break {
+    border: none;
+    height: 1px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #999999 0%, rgba(153, 153, 153, 0) 100%);
+  }
+  .bottom-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.25rem;
   }
   .socials {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.75rem;
     padding-left: 2px;
     a {
@@ -123,11 +172,46 @@ showInPostListing: true
   .socials a:hover {
     transform: scale(1.2);
   }
+  .badges {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .beasties,
+  .bl-ranked,
+  .ss-ranked,
+  .bsmg {
+    align-items: end;
+    display: flex;
+    gap: 0.25rem;
+    padding: 3px;
+    border-width: 1.5px !important;
+    border-style: solid !important;
+    border-radius: 5px;
+  }
+  .beasties {
+    background-color: #45408858;
+    border: #45408888;
+  }
+  .bl-ranked {
+    background-color: #cf8afb58;
+    border: #cf8afb88;
+  }
+  .ss-ranked {
+    background-color: #ffde1a58;
+    border: #ffde1a88;
+  }
+  .bsmg {
+    background-color: #747bff58;
+    border: #747bff88;
+  }
 
   iframe {
     width: 100%;
-    aspect-ratio: 16 / 9;
     max-width: 800px;
+    aspect-ratio: 16 / 9;
   }
 </style>
 
@@ -142,7 +226,7 @@ _Video playthrough of Somewhere Out There_
 
 # Interview with Swifter
 
-### Q: Tell us who you are! Your name, how long you’ve been playing Beat Saber, what got you started playing, what got you started modding, hobbies, etc.
+### Q: Tell us who you are! Your name, how long you’ve been playing Beat Saber, what got you started playing, what got you started modding, hobbies, etc
 
 **A:** I'm Swifter! I've been doing stuff in Beat Saber for about 5 years or so now, I started mapping around November 2019. I'm known for my visual art that I make in the game, mostly by the infamous "Somewhere Out There" map that blew up around 3 years ago. But I've done more since and have a lot of passion for making beautiful audio-visual-physical experiences. I am extremely passionate about music, I have a wonderful circle of friends who make some of my favorite music and I've even began producing some myself. In general I would describe myself as a programmer, artist, and producer.
 

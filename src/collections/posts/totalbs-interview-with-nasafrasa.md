@@ -1,5 +1,5 @@
 ---
-title: TotalBS - Interview with Mawntee
+title: TotalBS - Interview with Nasafrasa
 section: articles
 category: interview
 publish: 2024-11-19T00:00:00.000Z
@@ -17,7 +17,7 @@ showInPostListing: true
     <img style="border-radius: 50%; width: 92px; height: auto;" id="avatar" alt="avatar" />
   </div>
   <div class="bio">
-      <div class="name"><a href="https://beatsaver.com/profile/4285959" id="name"></a></div>
+      <div class="name"><a href="https://beatsaver.com/profile/4340055" id="name"></a></div>
       <div class="status">Verified Mapper</div>
   <div class="description" id="description"></div>
   <hr class="break" />
@@ -47,7 +47,7 @@ showInPostListing: true
 <script>
   async function fetchUserInfo() {
     try {
-      const response = await fetch('https://api.beatsaver.com/users/id/4285959');
+      const response = await fetch('https://api.beatsaver.com/users/id/4340055');
       const data = await response.json();
 
       document.getElementById('avatar').src = data.avatar;
@@ -79,7 +79,7 @@ showInPostListing: true
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/uploads/posts/exsii/Main.00_01_15_17.Still046.png');
+    background-image: url('/uploads/posts/exsii/Main.00_00_54_09.Still027.png');
     background-position: center;
     background-size: cover;
     filter: brightness(50%);

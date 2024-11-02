@@ -55,11 +55,10 @@ showInPostListing: true
     position: relative;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
     box-shadow: 0px 3px 3px black;
   }
   .profile::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -72,18 +71,33 @@ showInPostListing: true
     z-index: -1;
     border-radius: 5px;
   }
-  .break {
-    border: none;
-    height: 1px;
-    margin-bottom: 10px;
-    background: linear-gradient(90deg, #999999 0%, rgba(153, 153, 153, 0) 75%);
+
+  .image {
+    background-color: #00000050;
   }
+  @media (max-width: 512px) {
+    .image {
+      display: none;
+    }
+  }
+  .avatar {
+    padding: 5px;
+  }
+
   .bio {
+    border-radius: 5px;
+    background-color: #00000050;
+    padding: 5px 5px 5px 1rem;
     width: 100%;
   }
   .name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     font-size: 2.5rem;
     font-weight: bold;
+    align-items: center;
     a {
       color: white;
     }
@@ -100,16 +114,23 @@ showInPostListing: true
       color: white;
     }
   }
-  @media (max-width: 512px) {
-    .image {
-      display: none;
-    }
+  .break {
+    border: none;
+    height: 1px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #999999 0%, rgba(153, 153, 153, 0) 100%);
+  }
+  .bottom-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.25rem;
   }
   .socials {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.75rem;
     padding-left: 2px;
     a {
@@ -118,6 +139,36 @@ showInPostListing: true
   }
   .socials a:hover {
     transform: scale(1.2);
+  }
+  .badges {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .beasties,
+  .bl-ranked,
+  .ss-ranked {
+    align-items: end;
+    display: flex;
+    gap: 0.25rem;
+    padding: 3px;
+    border-width: 1.5px !important;
+    border-style: solid !important;
+    border-radius: 5px;
+  }
+  .beasties {
+    background-color: #45408858;
+    border: #45408888;
+  }
+  .bl-ranked {
+    background-color: #cf8afb58;
+    border: #cf8afb88;
+  }
+  .ss-ranked {
+    background-color: #ffde1a58;
+    border: #ffde1a88;
   }
 </style>
 
