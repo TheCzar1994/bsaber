@@ -20,7 +20,7 @@ showInPostListing: true
    </div>
    <div class="bio">
       <div class="name"><a href="https://beatsaver.com/profile/4284246" id="name"></a></div>
-      <div class="status">Verified Mapper</div>
+      <div class="status"><p id="roleString" /></div>
       <div class="description" id="description"></div>
       <hr class="break" />
       <div class="bottom-row">
@@ -39,22 +39,22 @@ showInPostListing: true
          </a>
       </div>
       <div class="badges">
-        <div class="beasties">
+        <a href="/the-beastsaber-mapping-awards" rel="external"><div class="beasties">
           <img src="/BeastSaber-logo-transformer.png" height="24" width="auto" alt="BeastSaber" />
           <p>Beasties Award Winner</p>
-        </div>
-        <div class="bsmg">
+        </div></a>
+        <a href="https://discord.gg/beatsabermods"><div class="bsmg">
             <img src="/uploads/playlists/BSMG-logo.svg" height="24" width="auto" alt="BSMG" />
             <p>BSMG Event Winner</p>
-         </div>
-         <div class="bl-ranked">
+         </div></a>
+         <a href="https://beatleader.xyz"><div class="bl-ranked">
             <img src="/beatleader-logo.svg" height="24" width="auto" alt="BeatLeader" />
             <p>Ranked Mapper</p>
-         </div>
-         <div class="ss-ranked">
+         </div></a>
+         <a href="https://scoresaber.com"><div class="ss-ranked">
             <img src="/scoresaber-logo.svg" height="24" width="auto" alt="ScoreSaber" />
             <p>Ranked Mapper</p>
-         </div>
+         </div></a>
       </div>
       </div>
    </div>
@@ -63,22 +63,48 @@ showInPostListing: true
 <br />
 
 <script>
-  async function fetchUserInfo() {
-    try {
-      const response = await fetch('https://api.beatsaver.com/users/id/4284246');
-      const data = await response.json();
+    function getRoles(user) {
+        const roles = [];
 
-      document.getElementById('avatar').src = data.avatar;
-      document.getElementById('name').textContent = data.name;
-      document.getElementById('description').innerHTML = data.description
-      .replace(/\n/g, '<br>')
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-       .replace(/\b(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank">$1</a>');
-    } catch (error) {
-      console.error('Error fetching from BeatSaver:', error);
+        if (user.admin) roles.push('Admin');
+        if (user.seniorCurator) {
+            roles.push('Senior Curator');
+        } else if (user.curator) {
+            roles.push('Curator');
+        }
+        if (user.verifiedMapper) roles.push('Verified Mapper');
+
+        return roles.join(', ');
     }
-  }
-    fetchUserInfo();
+
+    function formatDescription(text) {
+        return text
+            .replace(/\n/g, '<br>') // Convert line breaks to <br>
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Convert **bold** to <strong> tags
+            .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" style="color: white;">$1</a>') // Convert URLs to clickable links
+            .replace(/(^|\s)@(\w+)/g, '$1<a href="https://beatsaver.com/profile/$2" target="_blank">@$2</a>'); // Convert @mentions to profile links
+    }
+
+    async function fetchUserData() {
+        try {
+            const response = await fetch('https://api.beatsaver.com/users/id/4284246');
+            if (!response.ok) throw new Error('Failed to fetch user data');
+            
+            const data = await response.json();
+
+            document.getElementById('avatar').src = data.avatar || '';
+            document.getElementById('avatar').alt = data.name || 'User Avatar';
+            document.getElementById('name').textContent = data.name || 'Unknown User';
+            document.getElementById('description').innerHTML = formatDescription(data.description || '');
+            document.getElementById('roleString').textContent = getRoles(data);
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            document.getElementById('roleString').textContent = 'Error loading roles';
+            document.getElementById('description').textContent = 'Unable to load description.';
+        }
+    }
+
+    window.onload = fetchUserData;
 </script>
 
 <style>
@@ -105,7 +131,7 @@ showInPostListing: true
   }
 
   .image {
-    background-color: #00000050;
+    background-color: #00000080;
   }
   @media (max-width: 512px) {
     .image {
@@ -118,7 +144,7 @@ showInPostListing: true
 
   .bio {
     border-radius: 5px;
-    background-color: #00000050;
+    background-color: #00000080;
     padding: 5px 5px 5px 1rem;
     width: 100%;
   }
@@ -134,7 +160,7 @@ showInPostListing: true
       color: white;
     }
   }
-  .status {
+  .status p {
     color: #888;
     padding-left: 2px;
     margin-bottom: 2px;
@@ -162,7 +188,7 @@ showInPostListing: true
   .socials {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.75rem;
     padding-left: 2px;
     a {
@@ -179,6 +205,9 @@ showInPostListing: true
     gap: 0.5rem;
     align-items: center;
   }
+  .badges a:hover {
+    color: white;
+  }
   .beasties,
   .bl-ranked,
   .ss-ranked,
@@ -192,23 +221,23 @@ showInPostListing: true
     border-radius: 5px;
   }
   .beasties {
-    background-color: #45408858;
-    border: #45408888;
+    background-color: #45408875;
+    border: #454088;
   }
   .bl-ranked {
-    background-color: #cf8afb58;
-    border: #cf8afb88;
+    background-color: #cf8afb55;
+    border: #cf8afb85;
   }
   .ss-ranked {
-    background-color: #ffde1a58;
-    border: #ffde1a88;
+    background-color: #ffde1a55;
+    border: #ffde1a85;
   }
   .bsmg {
-    background-color: #747bff58;
-    border: #747bff88;
+    background-color: #747bff55;
+    border: #747bff85;
   }
 
-  iframe {
+  .iframe {
     width: 100%;
     max-width: 800px;
     aspect-ratio: 16 / 9;
@@ -216,6 +245,8 @@ showInPostListing: true
 </style>
 
 Surely you've heard of Swifter!? You know... one of the mappers involved in the (as of writing this article) #2 map of all time with a whopping 17,000+ upvotes: [{Modchart} acloudyskye - Somewhere Out There](https://beatsaver.com/maps/1e6ff). This map won in the 2021 BeastSaber Mapping Awards for not only the Best ModChart of the Year, but also _THE_ Map of the Year!
+
+<iframe src="https://beatsaver.com/maps/1e6ff/embed" width="600" height="145" loading="lazy" style="border: none; border-radius: 4px; margin-bottom: 1rem; margin-top: -1rem;"></iframe>
 
 !youtube\[rphHsDxJbpg]
 \
@@ -292,7 +323,7 @@ But for the longest time I felt quite hopeless when it came to making my own ass
 
 I was always hearing the word "shaders" being thrown around, and was basing my expectations pretty much entirely on what I was seeing on ShaderToy, where people were making [incredible worlds out of nothing but math](https://www.shadertoy.com/view/4ttSWf).
 
-<iframe loading="lazy" frameborder="0" src="https://www.shadertoy.com/embed/4ttSWf?gui=true&t=10&paused=false&muted=true" allowfullscreen></iframe>
+<iframe class="iframe" loading="lazy" frameborder="0" src="https://www.shadertoy.com/embed/4ttSWf?gui=true&t=10&paused=true&muted=true" allowfullscreen></iframe>
 <br />
 <br />
 
@@ -304,7 +335,7 @@ During the summer I began really looking into raymarching, a simple technique fo
 
 Suddenly I understood spaces and transformations on a much deeper level, it allowed me to [create a world entirely through algorithmic means](https://www.shadertoy.com/view/mlXyD2).
 
-<iframe loading="lazy" frameborder="0" src="https://www.shadertoy.com/embed/mlXyD2?gui=true&t=10&paused=false&muted=true" allowfullscreen></iframe>
+<iframe class="iframe" loading="lazy" frameborder="0" src="https://www.shadertoy.com/embed/mlXyD2?gui=true&t=10&paused=true&muted=true" allowfullscreen></iframe>
 <br />
 <br />
 

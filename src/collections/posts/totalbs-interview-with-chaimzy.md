@@ -18,7 +18,7 @@ showInPostListing: true
   </div>
   <div class="bio">
       <div class="name"><a href="https://beatsaver.com/profile/70911" id="name"></a></div>
-      <div class="status">Mapper</div>
+      <div class="status"><p id="roleString" /></div>
   <div class="description" id="description"></div>
   <hr class="break" />
   <div class="bottom-row">
@@ -36,23 +36,53 @@ showInPostListing: true
 </div>
 
 <script>
-  async function fetchUserInfo() {
-    try {
-      const response = await fetch('https://api.beatsaver.com/users/id/70911');
-      const data = await response.json();
+function getRoles(user) {
+    const roles = [];
 
-      document.getElementById('avatar').src = data.avatar;
-      document.getElementById('name').textContent = data.name;
-      document.getElementById('description').innerHTML = data.description
-      .replace(/\n/g, '<br>')
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-       .replace(/\b(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank">$1</a>')
-       .replace(/@(\w+)/g, '<a href="https://beatsaver.com/profile/username/$1" target="_blank">@$1</a>');
-    } catch (error) {
-      console.error('Error fetching from BeatSaver:', error);
+    if (user.admin) roles.push('Admin');
+    if (user.seniorCurator) {
+        roles.push('Senior Curator');
+    } else if (user.curator) {
+        roles.push('Curator');
     }
-  }
-    fetchUserInfo();
+
+    if (user.verifiedMapper) {
+        roles.push('Verified Mapper');
+    } else if (user.stats?.totalMaps >= 1) {
+        roles.push('Mapper');
+    }
+
+    return roles.join(', ');
+}
+
+    function formatDescription(text) {
+        return text
+            .replace(/\n/g, '<br>') // Convert line breaks to <br>
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Convert **bold** to <strong> tags
+            .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" style="color: white;">$1</a>') // Convert URLs to clickable links
+            .replace(/(^|\s)@(\w+)/g, '$1<a href="https://beatsaver.com/profile/$2" target="_blank">@$2</a>'); // Convert @mentions to profile links
+    }
+
+    async function fetchUserData() {
+        try {
+            const response = await fetch('https://api.beatsaver.com/users/id/70911');
+            if (!response.ok) throw new Error('Failed to fetch user data');
+            
+            const data = await response.json();
+
+            document.getElementById('avatar').src = data.avatar || '';
+            document.getElementById('avatar').alt = data.name || 'User Avatar';
+            document.getElementById('name').textContent = data.name || 'Unknown User';
+            document.getElementById('description').innerHTML = formatDescription(data.description || '');
+            document.getElementById('roleString').textContent = getRoles(data);
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            document.getElementById('roleString').textContent = 'Error loading roles';
+            document.getElementById('description').textContent = 'Unable to load description.';
+        }
+    }
+
+    window.onload = fetchUserData;
 </script>
 
 <style>
@@ -79,7 +109,7 @@ showInPostListing: true
   }
 
   .image {
-    background-color: #00000050;
+    background-color: #00000080;
   }
   @media (max-width: 512px) {
     .image {
@@ -92,7 +122,7 @@ showInPostListing: true
 
   .bio {
     border-radius: 5px;
-    background-color: #00000050;
+    background-color: #00000080;
     padding: 5px 5px 5px 1rem;
     width: 100%;
   }
@@ -108,7 +138,7 @@ showInPostListing: true
       color: white;
     }
   }
-  .status {
+  .status p {
     color: #888;
     padding-left: 2px;
     margin-bottom: 2px;
@@ -136,7 +166,7 @@ showInPostListing: true
   .socials {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.75rem;
     padding-left: 2px;
     a {
@@ -153,6 +183,9 @@ showInPostListing: true
     gap: 0.5rem;
     align-items: center;
   }
+  .badges a:hover {
+    color: white;
+  }
   .beasties,
   .bl-ranked,
   .ss-ranked {
@@ -165,20 +198,20 @@ showInPostListing: true
     border-radius: 5px;
   }
   .beasties {
-    background-color: #45408858;
-    border: #45408888;
+    background-color: #45408875;
+    border: #454088;
   }
   .bl-ranked {
-    background-color: #cf8afb58;
-    border: #cf8afb88;
+    background-color: #cf8afb55;
+    border: #cf8afb85;
   }
   .ss-ranked {
-    background-color: #ffde1a58;
-    border: #ffde1a88;
+    background-color: #ffde1a55;
+    border: #ffde1a85;
   }
   .bsmg {
-    background-color: #747bff58;
-    border: #747bff88;
+    background-color: #747bff55;
+    border: #747bff85;
   }
 </style>
 

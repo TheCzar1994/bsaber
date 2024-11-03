@@ -18,7 +18,7 @@ showInPostListing: true
   </div>
   <div class="bio">
       <div class="name"><a href="https://beatsaver.com/profile/4285959" id="name"></a></div>
-      <div class="status">Verified Mapper</div>
+      <div class="status"><p id="roleString" /></div>
   <div class="description" id="description"></div>
   <hr class="break" />
   <div class="bottom-row">
@@ -30,7 +30,7 @@ showInPostListing: true
     <a href="https://open.spotify.com/user/22y7ku23oiovh4y4fsm27m5va"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="19.375" viewBox="0 0 496 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.3-10.7-3.6-62.4-37.6-135-39.2-206.7-24.5-3.9 1-9 2.6-11.9 2.6-9.7 0-15.8-7.7-15.8-15.8 0-10.3 6.1-15.2 13.6-16.8 81.9-18.1 165.6-16.5 237 26.2 6.1 3.9 9.7 7.4 9.7 16.5s-7.1 15.4-15.2 15.4zm26.9-65.6c-5.2 0-8.7-2.3-12.3-4.2-62.5-37-155.7-51.9-238.6-29.4-4.8 1.3-7.4 2.6-11.9 2.6-10.7 0-19.4-8.7-19.4-19.4s5.2-17.8 15.5-20.7c27.8-7.8 56.2-13.6 97.8-13.6 64.9 0 127.6 16.1 177 45.5 8.1 4.8 11.3 11 11.3 19.7-.1 10.8-8.5 19.5-19.4 19.5zm31-76.2c-5.2 0-8.4-1.3-12.9-3.9-71.2-42.5-198.5-52.7-280.9-29.7-3.6 1-8.1 2.6-12.9 2.6-13.2 0-23.3-10.3-23.3-23.6 0-13.6 8.4-21.3 17.4-23.9 35.2-10.3 74.6-15.2 117.5-15.2 73 0 149.5 15.2 205.4 47.8 7.8 4.5 12.9 10.7 12.9 22.6 0 13.6-11 23.3-23.2 23.3z"/></svg></a>
     </div>
           <div class="badges">
-        <div class="beasties">
+        <a href="/the-beastsaber-mapping-awards" rel="external"><div class="beasties">
           <img
             height="24"
             width="auto"
@@ -38,30 +38,55 @@ showInPostListing: true
             alt="Logo"
           />
           <p>Beasties Award Winner</p>
-        </div>
+        </div></a>
         </div>
     </div>
   </div>
 </div>
 
 <script>
-  async function fetchUserInfo() {
-    try {
-      const response = await fetch('https://api.beatsaver.com/users/id/4285959');
-      const data = await response.json();
+    function getRoles(user) {
+        const roles = [];
 
-      document.getElementById('avatar').src = data.avatar;
-      document.getElementById('name').textContent = data.name;
-      document.getElementById('description').innerHTML = data.description
-      .replace(/\n/g, '<br>')
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-       .replace(/\b(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank">$1</a>')
-       .replace(/@(\w+)/g, '<a href="https://beatsaver.com/profile/username/$1" target="_blank">@$1</a>');
-    } catch (error) {
-      console.error('Error fetching from BeatSaver:', error);
+        if (user.admin) roles.push('Admin');
+        if (user.seniorCurator) {
+            roles.push('Senior Curator');
+        } else if (user.curator) {
+            roles.push('Curator');
+        }
+        if (user.verifiedMapper) roles.push('Verified Mapper');
+
+        return roles.join(', ');
     }
-  }
-    fetchUserInfo();
+
+    function formatDescription(text) {
+        return text
+            .replace(/\n/g, '<br>') // Convert line breaks to <br>
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Convert **bold** to <strong> tags
+            .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" style="color: white;">$1</a>') // Convert URLs to clickable links
+            .replace(/(^|\s)@(\w+)/g, '$1<a href="https://beatsaver.com/profile/$2" target="_blank">@$2</a>'); // Convert @mentions to profile links
+    }
+
+    async function fetchUserData() {
+        try {
+            const response = await fetch('https://api.beatsaver.com/users/id/4285959');
+            if (!response.ok) throw new Error('Failed to fetch user data');
+            
+            const data = await response.json();
+
+            document.getElementById('avatar').src = data.avatar || '';
+            document.getElementById('avatar').alt = data.name || 'User Avatar';
+            document.getElementById('name').textContent = data.name || 'Unknown User';
+            document.getElementById('description').innerHTML = formatDescription(data.description || '');
+            document.getElementById('roleString').textContent = getRoles(data);
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            document.getElementById('roleString').textContent = 'Error loading roles';
+            document.getElementById('description').textContent = 'Unable to load description.';
+        }
+    }
+
+    window.onload = fetchUserData;
 </script>
 
 <style>
@@ -88,7 +113,7 @@ showInPostListing: true
   }
 
   .image {
-    background-color: #00000050;
+    background-color: #00000080;
   }
   @media (max-width: 512px) {
     .image {
@@ -101,7 +126,7 @@ showInPostListing: true
 
   .bio {
     border-radius: 5px;
-    background-color: #00000050;
+    background-color: #00000080;
     padding: 5px 5px 5px 1rem;
     width: 100%;
   }
@@ -117,7 +142,7 @@ showInPostListing: true
       color: white;
     }
   }
-  .status {
+  .status p {
     color: #888;
     padding-left: 2px;
     margin-bottom: 2px;
@@ -145,7 +170,7 @@ showInPostListing: true
   .socials {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.75rem;
     padding-left: 2px;
     a {
@@ -162,9 +187,13 @@ showInPostListing: true
     gap: 0.5rem;
     align-items: center;
   }
+  .badges a:hover {
+    color: white;
+  }
   .beasties,
   .bl-ranked,
-  .ss-ranked {
+  .ss-ranked,
+  .bsmg {
     align-items: end;
     display: flex;
     gap: 0.25rem;
@@ -174,20 +203,20 @@ showInPostListing: true
     border-radius: 5px;
   }
   .beasties {
-    background-color: #45408858;
-    border: #45408888;
+    background-color: #45408875;
+    border: #454088;
   }
   .bl-ranked {
-    background-color: #cf8afb58;
-    border: #cf8afb88;
+    background-color: #cf8afb55;
+    border: #cf8afb85;
   }
   .ss-ranked {
-    background-color: #ffde1a58;
-    border: #ffde1a88;
+    background-color: #ffde1a55;
+    border: #ffde1a85;
   }
   .bsmg {
-    background-color: #747bff58;
-    border: #747bff88;
+    background-color: #747bff55;
+    border: #747bff85;
   }
 </style>
 
