@@ -1,9 +1,9 @@
 ---
 title: This is Extra Sensory II
-section: articles
+section: announcements
 category: event
 publish: 2024-11-19T00:00:00.000Z
-homepageText: ''
+homepageText: 'Extra Sensory II is finally here!'
 image: /static/uploads/posts/exsii/totalbslogo.png
 authors:
   - '4285984'
@@ -20,7 +20,7 @@ Since the groundbreaking release of Noodle Extensions into the Custom Beat Saber
 
 ![gifofnoods](/uploads/posts/exsii/gifofnoods.gif 'Examples of maps made with Noodle Extensions')
 
-During the 2023 Beasties Awards Show, Mawntee, who is a member of the TotalBS team, unveiled a teaser of the work being done to create the latest groundbreaking mod known as Extra Sensory II. Following this teaser, we got a chance to talk with and interview several members of the TotalBS team to learn more about them and their passion with the Custom Beat Saber Community. In this multi-part interview, we will be sharing details about what it took to get to the release, as well as some sneak peaks into the development.
+During the 2023 Beasties Awards Show, Mawntee, who is a member of the TotalBS team, unveiled a teaser of the work being done to create the latest groundbreaking mod known as Extra Sensory II. Following this teaser, we got a chance to talk with and interview several members of the TotalBS team to learn more about them and their passion with the Custom Beat Saber Community. In this multi-part interview, we will be sharing details about what it took to get to the release, as well as some "behind the scenes" of the development process.
 
 ### Take a look at the trailer here!
 
@@ -35,15 +35,17 @@ After talking with the people over at TotalBS, I can tell you these people are g
 
 ## About the Sight-Read Event! <a href="#sight-read-event" style="text-decoration:none;">🔗</a> {$sight-read-event}
 
+TotalBS will be hosting a "Sight Read" Tournament! Read below for more information:
+
 **Who can play:** Any PC Beat Saber player!
 <br />
-\*Currently, the Synapse Mod is only available on the PC version of Beat Saber. Remember, if you own the Oculus version, you can get a free PC version through the Oculus PC app and connect your headset!
+\*Currently, the Synapse Mod is only available on the PC version of Beat Saber. Remember, if you own the Oculus version, you can get a free PC version through the Oculus PC app and connect your headset with a Link cable!
 
 **What is it:**
 
-- Event will be a BR elimination style sight-read tournament, focused around maps with silly goofy gameplay gimmicks and visuals that haven't been seen before in Beat Saber
+- Event will be a Battle Royale elimination style sight-read tournament, focused around maps with silly, goofy, gameplay gimmicks and visuals that haven't been seen before in Beat Saber
 - The event is networked so that all players in the event lobby will be playing the same maps at the same time
-- First map will be a freebie, nobody is getting eliminated
+- First map will be a freebie, nobody will be getting eliminated
 - For each following map, a chunk of players will be eliminated until the last map in the event will decide who the final winner is
 - An eliminated player will still be able to participate in the event, their names will just be greyed out and their scores will be separated from the rest
 
@@ -58,7 +60,7 @@ After talking with the people over at TotalBS, I can tell you these people are g
 <div class="buttons">
   <a
     class="btn"
-    href="https://beatmods.com/uploads/6600b82cdfb5962c5bb29d42/universal/NoodleExtensions-1.6.1.zip"
+    href=""
     title="Download Synapse Mod for the Event">GET THE SYNAPSE MOD</a
   >
 </div>

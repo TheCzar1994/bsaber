@@ -9,7 +9,7 @@ homepageText: "Surely you've heard of Swifter!? You know... one of the mappers
 image: /static/uploads/posts/exsii/totalbslogo.png
 authors:
   - '4285984'
-showInPostListing: true
+showInPostListing: false
 ---
 
 [Go back to **"This is Extra Sensory II"**](/posts/this-is-extra-sensory-ii)
@@ -82,7 +82,7 @@ showInPostListing: true
             .replace(/\n/g, '<br>') // Convert line breaks to <br>
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Convert **bold** to <strong> tags
             .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" style="color: white;">$1</a>') // Convert URLs to clickable links
-            .replace(/(^|\s)@(\w+)/g, '$1<a href="https://beatsaver.com/profile/$2" target="_blank">@$2</a>'); // Convert @mentions to profile links
+            .replace(/(^|\s)@(\w+)/g, '$1<a href="https://beatsaver.com/profile/username/$2" target="_blank">@$2</a>'); // Convert @mentions to profile links
     }
 
     async function fetchUserData() {
@@ -132,21 +132,25 @@ showInPostListing: true
 
   .image {
     background-color: #00000080;
-  }
-  @media (max-width: 512px) {
-    .image {
-      display: none;
-    }
+    border-radius: 5px 0 0 5px;
   }
   .avatar {
     padding: 5px;
   }
 
   .bio {
-    border-radius: 5px;
+    border-radius: 0 5px 5px 0;
     background-color: #00000080;
     padding: 5px 5px 5px 1rem;
     width: 100%;
+  }
+    @media (max-width: 512px) {
+    .image {
+      display: none;
+    }
+    .bio {
+      border-radius: 5px;
+    }
   }
   .name {
     display: flex;
@@ -242,11 +246,16 @@ showInPostListing: true
     max-width: 800px;
     aspect-ratio: 16 / 9;
   }
+  @media (max-width: 678px) {
+    .beatmap {
+      display: none;
+    }
+  }
 </style>
 
-Surely you've heard of Swifter!? You know... one of the mappers involved in the (as of writing this article) #2 map of all time with a whopping 17,000+ upvotes: [{Modchart} acloudyskye - Somewhere Out There](https://beatsaver.com/maps/1e6ff). This map won in the 2021 BeastSaber Mapping Awards for not only the Best ModChart of the Year, but also _THE_ Map of the Year!
+Surely you've heard of Swifter!? You know... one of the mappers involved in the (as of writing this article) #2 map of all time with a whopping 17,000+ upvotes: [Modchart acloudyskye - Somewhere Out There](https://beatsaver.com/maps/1e6ff). This map won in the 2021 BeastSaber Mapping Awards for not only the Best ModChart of the Year, but also _THE_ Map of the Year!
 
-<iframe src="https://beatsaver.com/maps/1e6ff/embed" width="600" height="145" loading="lazy" style="border: none; border-radius: 4px; margin-bottom: 1rem; margin-top: -1rem;"></iframe>
+<iframe title="beatmap" class="beatmap" src="https://beatsaver.com/maps/1e6ff/embed" width="600" height="145" loading="lazy" style="border: none; border-radius: 4px; margin-bottom: 1rem; margin-top: -1rem;"></iframe>
 
 !youtube\[rphHsDxJbpg]
 \
@@ -323,7 +332,7 @@ But for the longest time I felt quite hopeless when it came to making my own ass
 
 I was always hearing the word "shaders" being thrown around, and was basing my expectations pretty much entirely on what I was seeing on ShaderToy, where people were making [incredible worlds out of nothing but math](https://www.shadertoy.com/view/4ttSWf).
 
-<iframe class="iframe" loading="lazy" frameborder="0" src="https://www.shadertoy.com/embed/4ttSWf?gui=true&t=10&paused=true&muted=true" allowfullscreen></iframe>
+<iframe title="shadertoy" class="iframe" loading="lazy" frameborder="0" src="https://www.shadertoy.com/embed/4ttSWf?gui=true&t=10&paused=true&muted=true" allowfullscreen></iframe>
 <br />
 <br />
 
@@ -335,7 +344,7 @@ During the summer I began really looking into raymarching, a simple technique fo
 
 Suddenly I understood spaces and transformations on a much deeper level, it allowed me to [create a world entirely through algorithmic means](https://www.shadertoy.com/view/mlXyD2).
 
-<iframe class="iframe" loading="lazy" frameborder="0" src="https://www.shadertoy.com/embed/mlXyD2?gui=true&t=10&paused=true&muted=true" allowfullscreen></iframe>
+<iframe title="shadertoy" class="iframe" loading="lazy" frameborder="0" src="https://www.shadertoy.com/embed/mlXyD2?gui=true&t=10&paused=true&muted=true" allowfullscreen></iframe>
 <br />
 <br />
 

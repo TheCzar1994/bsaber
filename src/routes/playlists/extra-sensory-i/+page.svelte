@@ -31,10 +31,6 @@
         that will flip how you play on its head. This song pack contains all of them in one place for
         you! From hell to cities, hitting bombs and notes that can't sit still, you're sure to find a
         new unexpected experience here.
-        <br />
-        <br />
-        <a class="uploader" href="/playlists/extra-sensory-ii">Extra Sensory II is now available!</a
-        >
       </p>
     </div>
     <div class="zip-one">
@@ -50,24 +46,16 @@
         ><Fa icon={faCloudDownloadAlt} /></a
       >
     </div>
-    <div class="buttons">
-      <a
-        class="btn"
-        href="https://beatmods.com/uploads/6600b82cdfb5962c5bb29d42/universal/NoodleExtensions-1.6.1.zip"
-        title="Archived Noodle Extensions Mod - NOT UP TO DATE">NOODLE EXTENSIONS</a
-      >
-      <a
-        class="btn"
-        href="https://beatmods.com/uploads/6600b865dfb5962c5bb29d45/universal/Chroma-2.8.1.zip"
-        title="Archived Chroma Mod - NOT UP TO DATE">CHROMA</a
-      >
-    </div>
+    <br />
+    <br />
+    <a class="uploader" href="/posts/this-is-extra-sensory-ii">Extra Sensory II is now available!</a
+    >
   </div>
 </section>
 <br />
 <h2><Fa icon={faMap} />&nbsp;Download the maps below!</h2>
 <hr class="fade" />
-<MapCards playlistId="50" />
+<MapCards playlistId={50} />
 
 <style lang="scss">
   .hero {
@@ -83,7 +71,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url('/uploads/playlists/totalbsbackground.png') no-repeat center center;
+    background: url('/uploads/posts/exsii/gifofnoods.gif') no-repeat center center;
     background-size: cover;
     filter: brightness(30%) blur(5px);
     z-index: -1;
@@ -127,7 +115,7 @@
   }
 
   .body {
-    padding-bottom: 2.5rem;
+    padding: 0 0.5rem 2.5rem 0.5rem;
   }
 
   h1 {
@@ -173,29 +161,6 @@
   }
   .zip:hover,
   .one:hover {
-    background-color: #5d5d8b;
-    text-decoration: none;
-    color: white;
-  }
-  .buttons {
-    display: grid;
-    gap: 0.3rem;
-    justify-content: center;
-    width: 100%;
-  }
-  .btn {
-    padding: 12px;
-    cursor: pointer;
-    font-size: 15px;
-    text-align: center;
-    transition: background-color 0.5s ease;
-    border-radius: 5px;
-    font-weight: bolder;
-    width: 197px;
-    background-color: #0cc0c9;
-    color: white;
-  }
-  .btn:hover {
     background-color: #5d5d8b;
     text-decoration: none;
     color: white;

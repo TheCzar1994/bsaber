@@ -9,7 +9,7 @@ homepageText: TheGoodBoi is a member of TotalBS and a Verified Mapper with 38
 image: /static/uploads/posts/exsii/totalbslogo.png
 authors:
   - '4285984'
-showInPostListing: true
+showInPostListing: false
 ---
 
 [Go back to **"This is Extra Sensory II"**](/posts/this-is-extra-sensory-ii)
@@ -53,7 +53,7 @@ showInPostListing: true
             .replace(/\n/g, '<br>') // Convert line breaks to <br>
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Convert **bold** to <strong> tags
             .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" style="color: white;">$1</a>') // Convert URLs to clickable links
-            .replace(/(^|\s)@(\w+)/g, '$1<a href="https://beatsaver.com/profile/$2" target="_blank">@$2</a>'); // Convert @mentions to profile links
+            .replace(/(^|\s)@(\w+)/g, '$1<a href="https://beatsaver.com/profile/username/$2" target="_blank">@$2</a>'); // Convert @mentions to profile links
     }
 
     async function fetchUserData() {
@@ -103,21 +103,25 @@ showInPostListing: true
 
   .image {
     background-color: #00000080;
-  }
-  @media (max-width: 512px) {
-    .image {
-      display: none;
-    }
+    border-radius: 5px 0 0 5px;
   }
   .avatar {
     padding: 5px;
   }
 
   .bio {
-    border-radius: 5px;
+    border-radius: 0 5px 5px 0;
     background-color: #00000080;
     padding: 5px 5px 5px 1rem;
     width: 100%;
+  }
+    @media (max-width: 512px) {
+    .image {
+      display: none;
+    }
+    .bio {
+      border-radius: 5px;
+    }
   }
   .name {
     display: flex;
@@ -209,7 +213,7 @@ showInPostListing: true
   }
 
   @media (max-width: 678px) {
-    .map-embed {
+    .beatmap {
       display: none;
     }
   }
@@ -219,7 +223,7 @@ Whether you're new to the community or a seasoned player, you probably know of T
 
 They also have a [new version](https://beatsaver.com/maps/2c2f4) that they collabed with SuperMemer417 which has received over 1,700 upvotes!
 
-<iframe class="map-embed" src="https://beatsaver.com/maps/2c2f4/embed" width="600" height="145" loading="lazy" style="border: none; border-radius: 4px; margin-bottom: 1rem; margin-top: -1rem;"></iframe>
+<iframe title="beatmap" class="beatmap" src="https://beatsaver.com/maps/2c2f4/embed" width="600" height="145" loading="lazy" style="border: none; border-radius: 4px; margin-bottom: 1rem; margin-top: -1rem;"></iframe>
 
 !youtube\[d-PPKvEo83s]
 \
@@ -282,7 +286,7 @@ I got involved in the EXSII event when I was teaching myself Vivify and sharing 
 **A:** I made two maps for the event, one of which was used in the teaser, which is sick. For development help, I guess you could say the maps introduced and revealed quite a few bugs to fix. I also tested and gave feedback on several maps made by others, and I even sorta made the EXSII banner logo used for the event:
 
 <p align="center">
-    <img src="/uploads/posts/exsii/tbs-exsii-srt.png">
+    <img alt="EXSII Sight Read Tournament Banner" src="/uploads/posts/exsii/tbs-exsii-srt.png">
 </p>
 
 When making my maps for EXSII, I tried to keep up with HR/Mawntee's soft deadlines the best I could, but I think the hardest part was getting everyone else involved to do the same. Something that got people moving at one point was the announcement of "Alright guys we're making the trailer" which I found to be pretty funny.

@@ -7,7 +7,7 @@ homepageText: ''
 image: /static/uploads/posts/exsii/totalbslogo.png
 authors:
   - '4285984'
-showInPostListing: true
+showInPostListing: false
 ---
 
 [Go back to **"This is Extra Sensory II"**](/posts/this-is-extra-sensory-ii)
@@ -60,7 +60,7 @@ function getRoles(user) {
             .replace(/\n/g, '<br>') // Convert line breaks to <br>
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Convert **bold** to <strong> tags
             .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" style="color: white;">$1</a>') // Convert URLs to clickable links
-            .replace(/(^|\s)@(\w+)/g, '$1<a href="https://beatsaver.com/profile/$2" target="_blank">@$2</a>'); // Convert @mentions to profile links
+            .replace(/(^|\s)@(\w+)/g, '$1<a href="https://beatsaver.com/profile/username/$2" target="_blank">@$2</a>'); // Convert @mentions to profile links
     }
 
     async function fetchUserData() {
@@ -110,21 +110,25 @@ function getRoles(user) {
 
   .image {
     background-color: #00000080;
-  }
-  @media (max-width: 512px) {
-    .image {
-      display: none;
-    }
+    border-radius: 5px 0 0 5px;
   }
   .avatar {
     padding: 5px;
   }
 
   .bio {
-    border-radius: 5px;
+    border-radius: 0 5px 5px 0;
     background-color: #00000080;
     padding: 5px 5px 5px 1rem;
     width: 100%;
+  }
+    @media (max-width: 512px) {
+    .image {
+      display: none;
+    }
+    .bio {
+      border-radius: 5px;
+    }
   }
   .name {
     display: flex;
