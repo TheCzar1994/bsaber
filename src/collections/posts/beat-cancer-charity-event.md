@@ -2,10 +2,12 @@
 title: Beat Cancer Charity Event
 section: articles
 category: event
+postEventType: charity
 publish: 2024-11-16T14:07:00.000Z
-homepageText: BEAT CANCER will be an in-person charity event focused on raising
-  money against Pancreatic Cancer. Attending will be over 20 prominent members
-  of the community all for raising money for this very important cause.
+homepageText: BEAT CANCER will be an in-person charity event focused
+  on   raising   money against Pancreatic Cancer. Attending will be over 20
+  prominent   members   of the community all for raising money for this very
+  important   cause.
 image: /static/uploads/posts/beatcancer-square.jpg
 showInPostListing: true
 ---
