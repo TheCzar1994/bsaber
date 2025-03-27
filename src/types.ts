@@ -1,18 +1,50 @@
+import type { iconMapping } from '$lib/iconMapping'
+
 export type Post = {
   title: string
   section: 'announcements' | 'articles' | 'speciality'
   publish: string
+  lastUpdated?: string
   body: string
   slug: string
   homepageText?: string
   image?: string
   icon?: string
   category: '' | 'announcement' | 'news' | 'articles' | 'interview' | 'event'
+  postEventType: 'tournament' | 'social' | 'learning' | 'awards' | 'charity' | 'seasonal'
   showInPostListing: boolean
   linkToSpecialtyPage?: string
+  authors: string[]
+  credits: { contributors: string[]; contribution?: string }[]
 }
 
-export type CommunityEventCategory = 'tournament' | 'social' | 'learning' | 'awards' | 'generic'
+export type Person = {
+  name: string
+  beatsaverId: string
+  bio?: string
+  socialLinks: {
+    platform: keyof typeof iconMapping
+    id: string
+  }[]
+}
+
+export interface Author extends Uploader {
+  bio: Person['bio']
+  socialLinks: Person['socialLinks']
+}
+
+export type PostWithAuthorAndContributor = Omit<Post, 'authors' | 'credits'> & {
+  authors: Author[]
+  credits: { contributors: Uploader[]; contribution?: string }[]
+}
+
+export type CommunityEventCategory =
+  | 'tournament'
+  | 'social'
+  | 'learning'
+  | 'awards'
+  | 'charity'
+  | 'generic'
 
 export type CommunityEventCollectionData = {
   title: string
@@ -51,11 +83,17 @@ export type MapOfTheWeekCollectionData = {
   mapId: string
   review: string
   startDate: string
-  showcase: {
-    id: string
-    type: 'youtube-short' | 'youtube-video'
+  showcase?: {
+    id?: string
+    type?: 'youtube-short' | 'youtube-video'
   }
+  hide?: boolean
   coverUrlOverwrite?: string
+}
+
+export type FeaturedPlaylistOverwriteCollectionData = {
+  id: string
+  linkOverwrite?: string
 }
 
 export type MapOfTheWeek = {
@@ -70,6 +108,7 @@ export type Playlist = {
   playlistId: number
   name: string
   description: string
+  playlistImage: string
   playlistImage512: string
   owner: Uploader
 }
@@ -83,6 +122,7 @@ export type Beatmap = {
   versions: BeatmapVersion[]
   tags: string[] | undefined
   collaborators: Uploader[]
+  nsfw?: boolean
 }
 
 export type BeatmapVersion = {
@@ -134,13 +174,7 @@ export type ImportPostModuleData = ImportModuleData<Omit<Post, 'slug'>>
 
 export type ImportMapOfTheWeekModuleData = ImportModuleData<MapOfTheWeekCollectionData>
 
-export type RootPageSSRData = {
-  announcements: Post[]
-  articles: Post[]
-  others: Post[]
-  communityEvents: CommunityEvent[]
-  currentMapOfTheWeek: MapOfTheWeek | undefined
-}
+export type ImportPersonModuleData = ImportModuleData<Person>
 
 export type CommunityLabel = {
   label: string

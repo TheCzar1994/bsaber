@@ -55,6 +55,10 @@
       expanded: false,
       Items: [
         {
+          name: 'Maps of the Week',
+          href: '/maps-of-the-week/1',
+        },
+        {
           name: 'Curator Recommended',
           href: 'https://beatsaver.com/?order=Curated&curated=true',
         },
@@ -73,8 +77,8 @@
       expanded: false,
       Items: [
         {
-          name: 'Curated Playlists',
-          href: 'https://beatsaver.com/playlists?order=Curated&curated=true',
+          name: 'Featured Packs',
+          href: '/playlists/page/1',
         },
         {
           name: 'All Playlists',
@@ -91,8 +95,8 @@
           href: '/the-beastsaber-mapping-awards',
         },
         {
-          name: 'Voting',
-          href: 'https://forms.gle/v69wKinCfZzVHfZ17',
+          name: '2024 Winners',
+          href: '/posts/the-beasties-2024-winners',
         },
         {
           name: '2023 Winners',

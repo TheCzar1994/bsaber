@@ -4,8 +4,10 @@
   import Header from './Header.svelte'
   import OneClickButton from './OneClickDownloadButton.svelte'
   import ZipDownloadButton from './ZipDownloadButton.svelte'
+  import CopyBsr from './CopyBSR.svelte'
   export let mapOfTheWeek: MapOfTheWeek
   export let showHeader = false
+  import { marked } from 'marked'
 
   let aspectRatio = mapOfTheWeek.showcase?.type === 'youtube-short' ? '9/16' : '16/9'
   let sizeDeterminer =
@@ -35,9 +37,17 @@
   const collaborators = mapOfTheWeek.map.collaborators ?? []
 
   const uploaders = [mapOfTheWeek.map.uploader, ...collaborators]
+
+  const renderer = new marked.Renderer()
+  renderer.paragraph = (text) => text
+
+  // Set the renderer to the marked options
+  marked.setOptions({
+    renderer: renderer,
+  })
 </script>
 
-{#if showShowcase && mapOfTheWeek.showcase != null}
+{#if showShowcase && mapOfTheWeek.showcase != null && mapOfTheWeek.showcase.id != null && mapOfTheWeek.showcase.type != null}
   <div class="showcase-modal" style="aspect-ratio: {aspectRatio}; {sizeDeterminer}; {sizeLimiter};">
     <iframe
       width="100%"
@@ -101,18 +111,17 @@
           <!-- @formatter:on -->
           <!-- prettier-ignore-end -->
           <!-- eslint-enable -->
-          <p class="review">{mapOfTheWeek.review}</p>
+          <p class="review">{@html marked(mapOfTheWeek.review)}</p>
           <div class="action-bar">
-            {#if mapOfTheWeek.showcase != null}
+            {#if mapOfTheWeek.showcase != null && mapOfTheWeek.showcase.id != null && mapOfTheWeek.showcase.type != null}
               <button class="open-showcase-button" on:click={() => openShowcase()}>
                 Watch the showcase
               </button>
             {/if}
-            <div class="zip-download-button-container">
+            <div class="interactive-buttons">
+              <CopyBsr mapId={mapOfTheWeek.map.id} />
               <ZipDownloadButton downloadURL={mapOfTheWeek.map.versions[0].downloadURL} />
-            </div>
-            <div class="one-click-download-button-container">
-              <OneClickButton mapId="[mapOfTheWeek.map.id]" />
+              <OneClickButton mapId={mapOfTheWeek.map.id} />
             </div>
           </div>
         </div>
@@ -150,7 +159,6 @@
 
   .action-bar {
     display: flex;
-    justify-content: space-between;
     margin-top: 0.7rem;
 
     & .open-showcase-button {
@@ -161,6 +169,7 @@
       border: none;
       padding: 0;
       margin: 0;
+      text-shadow: $color-background-primary 1px 0 10px;
 
       &:hover {
         text-decoration: underline;
@@ -238,6 +247,13 @@
       height: $size-cover;
       float: left;
       border-radius: 10px;
+      filter: drop-shadow(5px 5px 5px $color-background-primary);
+      transition: 0.6s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: 0.3s ease;
+      }
     }
 
     .map-details-container {
@@ -247,6 +263,7 @@
 
   .map-title {
     margin-bottom: 0rem;
+    text-shadow: $color-background-primary 1px 0 10px;
   }
 
   .profile-link {
@@ -255,6 +272,7 @@
 
   .map-uploader {
     margin-bottom: 1rem;
+    text-shadow: $color-background-primary 1px 0 10px;
   }
 
   .verified {
@@ -263,6 +281,7 @@
     /* Margin bottom to counter the illusion of it not being center */
     margin: 0 0 0.15rem 0.3rem;
     vertical-align: middle;
+    text-shadow: $color-background-primary 1px 0 10px;
   }
 
   .map-link {
@@ -271,15 +290,15 @@
 
   .review {
     white-space: pre-wrap;
+    text-shadow: $color-background-primary 1px 0 10px;
   }
 
-  .one-click-download-button-container {
-    margin-left: auto;
-  }
-
-  .zip-download-button-container {
+  .interactive-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 20px);
+    gap: 1rem;
     position: absolute;
     bottom: 2rem;
-    right: 3.4rem;
+    right: 1.5rem;
   }
 </style>

@@ -1,15 +1,17 @@
 local_backend: true
-publish_mode: editorial_workflow
 backend:
   name: git-gateway
   branch: master
   squash_merges: true
+logo_url: https://bsaber.com/beastsaber-logo.svg
 collections:
   - name: posts
     label: Posts
     label_singular: Post
     folder: src/collections/posts
     create: true
+    editor:
+      preview: false
     fields:
       - name: title
         label: Title
@@ -32,9 +34,25 @@ collections:
           - { label: 'Guide', value: 'guide' }
           - { label: 'Interview', value: 'interview' }
           - { label: 'Event', value: 'event' }
+      - name: postEventType
+        label: Post Event Type
+        hint: Only used for event posts.
+        required: false
+        widget: select
+        options:
+          - { label: 'Tournament', value: 'tournament' }
+          - { label: 'Social', value: 'social' }
+          - { label: 'Learning', value: 'learning' }
+          - { label: 'Awards', value: 'awards' }
+          - { label: 'Charity', value: 'charity' }
+          - { label: 'Seasonal', value: 'seasonal' }
       - name: publish
         label: Publish Date
         widget: datetime
+      - name: lastUpdated
+        label: Last Updated
+        widget: datetime
+        required: false
       - name: homepageText
         label: Homepage Text
         required: false
@@ -50,6 +68,36 @@ collections:
         required: false
         media_folder: /static/uploads/posts
         choose_url: false
+      - name: authors
+        label: Author(s)
+        widget: relation
+        multiple: true
+        collection: people
+        search_fields: [name]
+        value_field: '{{beatsaverId}}'
+        display_fields: [name]
+        required: false
+        hint: The author(s) of this article. You can select multiple, but you don't have to specify any!
+      - name: credits
+        label: Credits
+        required: false
+        widget: list
+        summary: 'Thanks to {{fields.contributor}} for {{fields.contribution}}.'
+        fields:
+          - name: contributors
+            label: Contributor(s)
+            widget: relation
+            collection: people
+            search_fields: [name]
+            value_field: '{{beatsaverId}}'
+            display_fields: [name]
+            multiple: true
+            hint: The contributor(s) of this article. You can select multiple if they have contributed in the same way.
+          - name: contribution
+            label: Contribution
+            widget: string
+            hint: 'The contribution of the contributor(s) to this article. If provided it will be inserted into the articles as "Thanks to {{Contributor}} for {{Contribution}}." If not provided, {{Contribution}} will default to "for their contribution". Example: ''the feedback and proofreading the article''.'
+            required: false
       - name: showInPostListing
         label: Show in post listing
         widget: boolean
@@ -64,6 +112,8 @@ collections:
     folder: src/collections/map-of-the-week
     slug: '{{startDate}}'
     create: true
+    editor:
+      preview: false
     fields:
       - name: mapId
         label: Map  ID
@@ -75,8 +125,9 @@ collections:
       - name: startDate
         label: Start Date
         hint: Starting when the map of the week should be displayed on the root page.
-        default: 2024-01-01T00:00:00Z
+        default: '{{now}}'
         widget: datetime
+        picker_utc: true
       - name: showcase
         label: Showcase
         hint: "A video that will be embedded in a modal on the map of the week page. This should be a video that showcases the map in a good way. If you don't have a video, you can leave this empty."
@@ -87,9 +138,11 @@ collections:
             label: ID
             hint: The ID of the video. For YouTube videos and shorts, this is the last part of the URL. For example, the ID of the video https://www.youtube.com/shorts/ed8A3n49Gmg is the last part ed8A3n49Gmg.
             widget: string
+            required: false
           - name: type
             label: ID Type
             widget: select
+            required: false
             options:
               - { label: 'YouTube Short', value: 'youtube-short' }
               - { label: 'YouTube Video', value: 'youtube-video' }
@@ -103,6 +156,8 @@ collections:
     folder: src/collections/community-labels
     slug: '{{label}}'
     create: true
+    editor:
+      preview: false
     fields:
       - name: label
         label: Label
@@ -118,6 +173,8 @@ collections:
     folder: src/collections/communities
     slug: '{{name}}'
     create: true
+    editor:
+      preview: false
     fields:
       - name: name
         label: Name
@@ -241,6 +298,8 @@ collections:
     folder: src/collections/community-events
     slug: '{{title}}'
     create: true
+    editor:
+      preview: false
     view_filters:
       - label: Beat Saber Modding Group
         field: host
@@ -275,6 +334,9 @@ collections:
       - label: Comfy Sabers
         field: host
         pattern: Comfy Sabers
+      - label: Student Saber Showdown
+        field: host
+        pattern: Student Saber Showdown
     sortable_fields: ['host', 'title']
     fields:
       - name: host
@@ -297,6 +359,7 @@ collections:
           - { label: 'Learning', value: 'learning' }
           - { label: 'Awards', value: 'awards' }
           - { label: 'Generic', value: 'generic' }
+          - { label: 'Charity', value: 'charity' }
       - name: startDateTime
         label: Start Date/Time
         widget: datetime
@@ -323,11 +386,74 @@ collections:
     folder: src/collections/community-event-hosts
     slug: '{{name}}'
     create: true
+    editor:
+      preview: false
     fields:
       - name: name
         label: Name
       - name: url
         label: URL
+        widget: string
+  - name: people
+    label: People
+    folder: src/collections/people
+    slug: '{{name}}'
+    create: true
+    editor:
+      preview: false
+    fields:
+      - name: name
+        label: name
+      - name: beatsaverId
+        label: BeatSaver ID
+        hint: "The BeatSaver ID of the user. You can find this one in the URL of the user's page on beatsaver.com which will look like this: https://beatsaver.com/profile/${beatsaverId}. The ID is the last part of the URL."
+      - name: bio
+        label: Bio
+        widget: markdown
+        required: false
+        hint: A short bio of the user. Only used for authors on posts.
+      - name: socialLinks
+        label: Social Links
+        widget: list
+        multiple: true
+        required: false
+        hint: The social links of the user. Only used for authors on posts. The BeatSaver ID is given above as well, but if you want this to be listed as your social links you need to re-enter it here.
+        summary: '{{fields.platform}}: {{fields.id}}'
+        fields:
+          - name: platform
+            label: Platform
+            widget: select
+            options:
+              [
+                'Discord',
+                'Twitter/X',
+                'Facebook',
+                'Instagram',
+                'Twitch',
+                'YouTube',
+                'Reddit',
+                'GitHub',
+                'Website',
+                'Documentation',
+                'BeatSaver',
+              ]
+          - name: id
+            label: ID
+            widget: string
+  - name: featured-playlist-overwrites
+    label: Featured Playlist Overwrites
+    folder: src/collections/featured-playlist-overwrites
+    slug: '{{id}}'
+    create: true
+    editor:
+      preview: false
+    fields:
+      - name: id
+        label: BeatSaver Playlist ID
+      - name: linkOverwrite
+        label: Link Overwrite
+        required: false
+        hint: If you want to direct the playlist link to a different location than the BeatSaver playlist page write down the URL here. You should start it with "/" if you intend to put a BeastSaber site.
         widget: string
 media_folder: 'static/uploads'
 public_folder: '/uploads'

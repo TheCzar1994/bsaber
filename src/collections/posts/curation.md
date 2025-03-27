@@ -31,7 +31,7 @@ To follow a Curator you like, go to their BeatSaver profile page and click on th
 
 <br />
 
-## For Mappers
+## For Mappers <a href="#objective-issues" style="text-decoration:none;">🔗</a> {$objective-issues}
 
 While Curation decisions are in large part subjective, the following major playability issues (often referred to as Objective Issues) will bar a map from curation.
 
@@ -55,7 +55,66 @@ While Curation decisions are in large part subjective, the following major playa
 
 Maps with objective issues in the Curation Request Queue will be marked with an ❌ reaction and will not be looked at by Curators.
 
-> It should be noted that most of our Curators regularly keep an eye on the Latest feed on BeatSaver and will usually be able to find maps out in the wild.
+<br />
+
+## Pets!
+
+For reading through all of our requirements, have some pictures of our Curator's (and some retired Curator's) pets!
+
+<div class="photos">
+  <figure>
+    <img src="/uploads/posts/curation/bella.jpg" alt="Bella" />
+    <figcaption>OneSpookyBoi's dog, "Bella"</figcaption>
+  </figure>
+  <figure>
+    <img src="/uploads/posts/curation/charles.jpg" alt="Charles" />
+    <figcaption>Phoenix's cat, "Charles"</figcaption>
+  </figure>
+  <figure>
+    <img src="/uploads/posts/curation/cleo.jpg" alt="Cleo" />
+    <figcaption>nitronik.exe's cat, "Cleo"</figcaption>
+  </figure>
+  <figure>
+    <img src="/uploads/posts/curation/echo-zuko.jpg" alt="Echo & Zuko" />
+    <figcaption>Symphonic's cats, "Echo" & "Zuko"</figcaption>
+  </figure>
+  <figure>
+    <img src="/uploads/posts/curation/gnocchi.jpg" alt="Gnocchi" />
+    <figcaption>Pixelguy's dog, "Gnocchi"</figcaption>
+  </figure>
+  <figure>
+    <img src="/uploads/posts/curation/rocket.jpg" alt="Rocket" />
+    <figcaption>RateGyro's dog, "Rocket"</figcaption>
+  </figure>
+</div>
+
+<style>
+  .photos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  figure {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ffffff50;
+    border-radius: 5px;
+  }
+  figure img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 300px;
+    width: auto;
+    margin: 1rem;
+  }
+  figcaption {
+    text-align: center;
+    margin: -0.5rem 0.5rem 0.5rem 0.5rem;
+  }
+</style>
 
 <br />
 
@@ -63,4 +122,6 @@ Maps with objective issues in the Curation Request Queue will be marked with an 
 
 ## Have a map you’d like to suggest to our Curation team?
 
-Fill out our [Curation Request Form](https://forms.gle/ppkhbA9TG4GmN3jS7) and then track the status of your request [here](https://docs.google.com/spreadsheets/d/1IBZNJUae94FjJGMmnc94JsH3SN7iBufW-CzrU2zJPEk/edit#gid=773434791).
+While most of our Curators regularly keep up with the Latest Maps feed on BeatSaver, if after a few days your map (or someone else's map) hasn't gotten curated and you feel like it hasn't gotten the attention you think it deserves, you can submit the map as a curation request.
+
+Fill out our [Curation Request Form](https://forms.gle/ppkhbA9TG4GmN3jS7) and then track the status of your request [here](https://docs.google.com/spreadsheets/d/1IBZNJUae94FjJGMmnc94JsH3SN7iBufW-CzrU2zJPEk/edit#gid=773434791). Please review the Guide/FAQ there if you have questions.

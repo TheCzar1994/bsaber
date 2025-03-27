@@ -4,7 +4,7 @@ section: articles
 category: news
 publish: 2022-01-23T00:00:00.000Z
 homepageText: 'Your winners for the 2021 BeastSaber Mapping Awards announced!'
-image: /static/uploads/posts/2021.jpg
+image: /static/uploads/posts/beasties/beasties-medals.jpg
 showInPostListing: true
 ---
 
@@ -27,8 +27,6 @@ If you’re not the reading type, you can watch the announcement video [here](ht
 - **Lighter of the Year: [AaltopahWi](https://beatsaver.com/profile/4284269)**
 
 - **Rookie Mapper of the Year: [JRE_McNuggies](https://beatsaver.com/profile/4288314)**
-
-- **Rookie Lighter of the Year: [Nixie.Korten](https://beatsaver.com/profile/4286374)**
 
 <br />
 

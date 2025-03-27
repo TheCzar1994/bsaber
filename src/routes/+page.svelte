@@ -16,7 +16,7 @@
   import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine'
   import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 
-  import type { RootPageSSRData } from '../types'
+  import type { RootPageSSRData } from './+page.server.ts'
   import MapOfTheWeekSection from '$lib/MapOfTheWeekSection.svelte'
   import MetaHead from '$lib/MetaHead.svelte'
   import EventCards from '$lib/EventCards.svelte'
@@ -24,7 +24,13 @@
 
   export let data: RootPageSSRData
 
-  let { announcements, currentMapOfTheWeek, articles, communityEvents } = data
+  let {
+    announcements,
+    currentMapOfTheWeek,
+    articles,
+    communityEvents,
+    featuredPlaylistOverwriteMap,
+  } = data
   let announcement = data.announcements?.length > 0 ? announcements[0] : undefined
 
   const currentEvents = communityEvents.filter(isCurrentEvent).reverse()
@@ -41,6 +47,7 @@
       <AnnouncementHeader {announcement} />
     </div>
   {/if}
+
   <QuickFilters />
   <!-- Search to be moved to Navbar later -->
   <Search />
@@ -52,12 +59,10 @@
   <Header
     text="Featured Packs"
     icon={faRectangleList}
-    linkUrl={`${
-      import.meta.env.VITE_BEATSAVER_BASE || 'https://beatsaver.com'
-    }/playlists?curated=true`}
-    linkText="See all curated packs"
+    linkUrl={'/playlists/page/1'}
+    linkText="See all featured packs"
   />
-  <PlaylistCards maxCards={maxFeaturedPackCards} />
+  <PlaylistCards maxCards={maxFeaturedPackCards} overwriteMap={featuredPlaylistOverwriteMap} />
 
   <Header
     text="Latest Articles"
@@ -75,7 +80,7 @@
     }/?order=Curated&curated=true`}
     linkText="See all curated maps"
   />
-  <MapCards sortOrder="CURATED" />
+  <MapCards sortOrder="Curated" loadMoreEnabled={true} />
 
   <Header
     text="Recent Maps by Verified Mappers"
@@ -83,7 +88,7 @@
     linkUrl={`${import.meta.env.VITE_BEATSAVER_BASE || 'https://beatsaver.com'}/?verified=true`}
     linkText="See all maps by verified mappers"
   />
-  <MapCards verified={true} />
+  <MapCards verified={true} loadMoreEnabled={true} />
 
   <Header
     text="Community Events"
@@ -100,13 +105,7 @@
 </section>
 
 <style lang="scss">
-  hr {
-    height: 1px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: none;
-    background-color: #707070;
-  }
+  @import 'src/scss/variables';
 
   .announcement {
     margin-bottom: 1.5rem;

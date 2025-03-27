@@ -5,6 +5,8 @@
   export let mapId: string | undefined = undefined
   export let playlistUrl: string | undefined = undefined
 
+  export let fontSize: string = '1rem'
+
   if (mapId && playlistUrl) {
     console.error('Only one of mapId or playlistUrl can be provided. mapId takes priority.')
   }
@@ -16,17 +18,19 @@
 
 {#if mapId}
   <a
-    title="OneClick&trade; Install via BeatSaver and ModAssistant"
+    title="OneClick&trade; Install via BeatSaver"
     href="beatsaver://{mapId}"
     class="one-click-download-link"
+    style="font-size: {fontSize}"
   >
     <Fa icon={faCloudDownloadAlt} />
   </a>
 {:else if playlistUrl}
   <a
-    title="OneClick&trade; Install via BeatSaver and ModAssistant"
+    title="OneClick&trade; Install via BeatSaver"
     href="bsplaylist://playlist/{playlistUrl}"
     class="one-click-download-link"
+    style="font-size: {fontSize}"
   >
     <Fa icon={faCloudDownloadAlt} />
   </a>
@@ -42,9 +46,12 @@
     display: none;
     color: $color-text-secondary;
     transition: color $transition-short;
+    transition: 0.6s ease;
 
     &:hover {
       color: $color-text-primary;
+      transform: scale(1.2);
+      transition: 0.3s ease;
     }
   }
 

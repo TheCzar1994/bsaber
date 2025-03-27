@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Beatmap } from '../types'
-  import { onMount } from 'svelte'
+  import { onMount, onDestroy } from 'svelte'
   import Uploader from '$lib/Uploader.svelte'
   import Tags from '$lib/Tags.svelte'
   import Difficulties from '$lib/Difficulties.svelte'
@@ -11,30 +11,61 @@
   import Fa from 'svelte-fa/src/fa.svelte'
   import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
   import { audioPlayer } from '$lib/audio-player'
+  import { beatSaverClientFactory } from './beatsaver-client'
+  import CopyBsr from './CopyBSR.svelte'
+  import { slide } from 'svelte/transition'
+  import { filterNsfw } from './storeNsfwPreference'
+  import { nsfwToggleVisibility } from './storeNsfwPreference'
 
-  export let sortOrder: 'FIRST_PUBLISHED' | 'UPDATED' | 'LAST_PUBLISHED' | 'CREATED' | 'CURATED' =
-    'FIRST_PUBLISHED'
+  export let sortOrder: 'Latest' | 'Relevance' | 'Rating' | 'Curated' | 'Random' = 'Latest'
   export let verified: boolean | undefined = undefined
-  export let maxCards: number | undefined = undefined // max amount of cards to show
+  export let playlistId: number | undefined = undefined
+  export let forceColumnCount: number | undefined = undefined
+  export let loadMoreEnabled: boolean = false // New prop to control "Load More" button
+  export let fixedCount: number = 50 // Default fixed number of cards to show. Should account for any playlist pages
+  export let showToggle = true // Allow excplictly hiding the NSFW toggle with default being true
 
   let maps: Beatmap[] = []
-
+  let visibleCount = loadMoreEnabled ? 8 : fixedCount // Use fixed count if loadMoreEnabled is false
   let previewKey: string | null = null
 
   const setPreviewKey = (key: string | null) => (previewKey = key)
 
   onMount(async () => {
+    if (showToggle) {
+      nsfwToggleVisibility.set(true)
+    }
     await getMaps()
   })
 
-  let baseUrl = import.meta.env.VITE_BEATSAVER_API_BASE || 'https://api.beatsaver.com'
-  let url = `${baseUrl}/maps/latest?sort=${sortOrder}${
-    verified !== undefined ? `&verified=${verified}` : ''
-  }&pageSize=${maxCards ?? 8}`
+  onDestroy(() => {
+    if (showToggle) {
+      nsfwToggleVisibility.set(false)
+    }
+  })
+
+  const beatSaverClient = beatSaverClientFactory.create()
+
+  let path: string
+  if (playlistId != null) {
+    path = `/playlists/id/${playlistId}/0`
+  } else {
+    path = `/search/text/0?sortOrder=${sortOrder}${
+      verified !== undefined ? `&verified=${verified}` : ''
+    }&pageSize=100` // Maxes out at 100
+  }
 
   async function getMaps() {
-    let response = await fetch(url)
-    maps = await response.json().then((json) => json['docs'] as Beatmap[])
+    let response = await beatSaverClient.fetch(path)
+    if (playlistId != null) {
+      maps = await response.json().then((json) => json.maps.map((x) => x.map) as Beatmap[])
+    } else {
+      maps = await response.json().then((json) => json['docs'] as Beatmap[])
+    }
+  }
+
+  function loadMore() {
+    visibleCount += 8 // Load 8 more cards when clicking "Load More"
   }
 
   // Having it in a class is a bit trickier to handle. So we're pulling it out there.
@@ -49,14 +80,19 @@
   }
 </script>
 
-<div class="cards max-cols-3">
+<div
+  class="cards max-cols-3"
+  style={forceColumnCount != null
+    ? `grid-template-columns: repeat(${forceColumnCount}, 1fr) !important;`
+    : ''}
+>
   {#if previewKey != null}
     <MapPreviewModal bind:key={previewKey} />
   {/if}
 
   {#if maps.length !== 0}
-    {#each maps as map}
-      <div class="card-wrapper">
+    {#each maps.slice(0, visibleCount) as map (map.id)}
+      <div class="card-wrapper" transition:slide={{ duration: 300 }}>
         <div class="card">
           <div class="image-container">
             <img
@@ -64,8 +100,8 @@
                 map.versions[0].hash
               }.jpg`}
               alt={map.name}
+              class:blur={$filterNsfw && map.nsfw}
             />
-
             <div
               class="button-overlay"
               class:force-show={$playingId === map.id}
@@ -93,13 +129,14 @@
             </div>
             <div class="tag-row-container">
               <Tags tags={map.tags} />
-              <div class="map-preview">
+              <div class="interactive-buttons">
+                <CopyBsr mapId={map.id} />
                 <MapPreview mapId={map.id} {setPreviewKey} />
               </div>
             </div>
             <div class="last-row-container">
               <Difficulties diffs={map.versions[0].diffs} />
-              <div class="download-button-container">
+              <div class="interactive-buttons">
                 <ZipDownloadButton downloadURL={map.versions[0].downloadURL} />
                 <OneClickDownloadButton mapId={map.id} />
               </div>
@@ -109,11 +146,18 @@
       </div>
     {/each}
   {:else}
-    {#each Array(maxCards ?? 8) as _}
+    {#each Array(8) as _}
       <div class="card-wrapper loading" />
     {/each}
   {/if}
 </div>
+
+<!-- Conditionally show "Load More" button if loadMoreEnabled is true -->
+{#if loadMoreEnabled && visibleCount < maps.length}
+  <div class="load-more-container">
+    <button on:click|preventDefault={loadMore} class="load-more">Show More</button>
+  </div>
+{/if}
 
 <style lang="scss">
   @import 'src/scss/variables';
@@ -136,6 +180,26 @@
   $background-size: 100% + $gradient-coverage;
   $gradient-start: percentage(100% / $background-size);
 
+  .load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .load-more {
+    background-color: $color-background-secondary;
+    border: none;
+    color: $color-danger-red;
+    padding: 10px 40px;
+    border-radius: $rounding-large;
+    transition: background-color $transition-long;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .card-wrapper {
     background: linear-gradient(
       90deg,
@@ -148,21 +212,14 @@
     transition: background-position $transition-long;
     overflow: hidden;
 
-    .download-button-container {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-      opacity: 0;
-      transition: opacity $transition-long;
-    }
-
-    .map-preview {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-      opacity: 0;
+    .interactive-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 20px);
+      gap: 1rem;
+      justify-items: center;
       transition: opacity $transition-long;
       margin-left: auto;
+      opacity: 0;
     }
 
     &:hover {
@@ -172,12 +229,8 @@
         background-position-x: 100%;
       }
 
-      .download-button-container {
-        opacity: 100%;
-      }
-
-      .map-preview {
-        opacity: 100%;
+      .interactive-buttons {
+        opacity: 1;
       }
     }
 
@@ -204,11 +257,18 @@
 
     .image-container {
       position: relative;
+      overflow: hidden;
+      border-radius: $rounding-large;
       height: $image-size;
       flex: $image-size 0 0;
 
+      .blur {
+        filter: blur(5px);
+      }
+
       img {
-        height: 100%;
+        height: 128px;
+        width: 128px;
         border-radius: $rounding-large;
       }
 
@@ -259,17 +319,12 @@
         margin-bottom: 0.25rem;
       }
 
-      .last-row-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-      }
-
+      .last-row-container,
       .tag-row-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
       }
     }
   }

@@ -1,5 +1,16 @@
 <script lang="ts">
   import { slide } from 'svelte/transition'
+  import { filterNsfw } from './storeNsfwPreference'
+  import { nsfwToggleVisibility } from './storeNsfwPreference'
+  import { onMount, onDestroy } from 'svelte'
+
+  onMount(() => {
+    nsfwToggleVisibility.set(true)
+  })
+
+  onDestroy(() => {
+    nsfwToggleVisibility.set(false)
+  })
 
   const dropdownItems: {
     name: string
@@ -15,8 +26,9 @@
     },
   ]
 
-  const beatsaverRoot = 'https://beatsaver.com/'
-  const beatsaverApiRoot = 'https://api.beatsaver.com/'
+  const beatsaverRoot = import.meta.env.VITE_BEATSAVER_BASE || 'https://beatsaver.com' + '/'
+  const beatsaverApiRoot =
+    import.meta.env.VITE_BEATSAVER_API_BASE || 'https://api.beatsaver.com' + '/'
 
   const mapsSearchApiEndpoint = `${beatsaverApiRoot}search/text/`
   const playlistsApiEndpoint = `${beatsaverApiRoot}playlists/search/`
@@ -37,6 +49,7 @@
     upvotes: number
     downvotes: number
     score: number
+    nsfw?: boolean
   }[] = []
 
   let searchPreviewTimeout
@@ -92,6 +105,7 @@
                   upvotes: song.stats.upvotes,
                   downvotes: song.stats.downvotes,
                   score: song.stats.score,
+                  nsfw: song.nsfw,
                 }
               })
             }
@@ -174,7 +188,9 @@
     >
       {#each previewResults as preview}
         <a class="dropdown-item" href={preview.url}>
-          <img src={preview.image} class="dropdown-item-image" alt="Map Thumbnail" />
+          <div class="image-wrapper">
+            <img src={preview.image} class:blur={$filterNsfw && preview.nsfw} alt="Map Thumbnail" />
+          </div>
           <div class="dropdown-item-map-name">
             {preview.name}<br />
             <div class="dropdown-item-uploader">Uploaded by: {preview.uploader}</div>
@@ -267,6 +283,19 @@
     background-color: transparent;
     border: 0;
   }
+  .image-wrapper {
+    display: flex;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  .image-wrapper img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 5px;
+  }
+  .blur {
+    filter: blur(5px);
+  }
   a.dropdown-item {
     width: auto;
     overflow: hidden;
@@ -279,16 +308,11 @@
   .dropdown-item:hover {
     background-color: lighten($color-bsaber-purple, 5%);
   }
-  .dropdown-item-image {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 5px;
-    margin-right: 0.5rem;
-  }
   .dropdown-item-map-name {
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin-left: 0.5rem;
   }
   .dropdown-item-uploader {
     padding-top: 0.15rem;

@@ -1,6 +1,14 @@
 import { getSortedMapsOfTheWeekNetlifyData } from '$lib/getMapsOfTheWeekNetlifyData'
-import type { Post, MapOfTheWeek, CommunityEvent, ImportPostModuleData } from '../types'
+import type {
+  Post,
+  MapOfTheWeek,
+  CommunityEvent,
+  ImportPostModuleData,
+  FeaturedPlaylistOverwriteCollectionData,
+} from '../types'
 import { retrieveCommunityEvents } from '$lib/retrieveCommunityEvents'
+import { retrieveAllCollectionDataOfType } from '$lib/retrieveCollectionData'
+import { beatSaverClientFactory } from '$lib/beatsaver-client'
 
 export type RootPageSSRData = {
   announcements: Post[]
@@ -8,6 +16,7 @@ export type RootPageSSRData = {
   others: Post[]
   communityEvents: CommunityEvent[]
   currentMapOfTheWeek: MapOfTheWeek | undefined
+  featuredPlaylistOverwriteMap: Record<string, FeaturedPlaylistOverwriteCollectionData>
 }
 
 interface LoadParameters {
@@ -33,21 +42,14 @@ export async function load({ fetch }: LoadParameters): Promise<RootPageSSRData> 
     // Since it's sorted it's the first one
     const currentMOTWCollectionData = mapsOfTheWeek[0]
 
-    const beatSaverMapData = await fetch(
-      `https://api.beatsaver.com/maps/id/${currentMOTWCollectionData.mapId}`,
-    ).then((res) => res.json())
+    const beatSaverClient = beatSaverClientFactory.create(fetch)
+    const beatSaverMapData = await beatSaverClient
+      .fetch(`/maps/id/${currentMOTWCollectionData.mapId}`)
+      .then((res) => res.json())
 
-    let coverUrl = currentMOTWCollectionData.coverUrlOverwrite
-    if (coverUrl == null) {
-      const beatLeaderLeaderBoardData = await fetch(
-        `https://api.beatleader.xyz/leaderboard/${beatSaverMapData.id}`,
-      ).then((res) => res.json())
-      coverUrl = beatLeaderLeaderBoardData.song.fullCoverImage
-    }
-
-    if (coverUrl == null) {
-      throw new Error('No cover URL found!')
-    }
+    let coverUrl =
+      currentMOTWCollectionData.coverUrlOverwrite ??
+      `https://cdn.assets.beatleader.xyz/songcover-${currentMOTWCollectionData.mapId}-full.webp`
 
     currentMapOfTheWeek = {
       map: beatSaverMapData,
@@ -87,9 +89,17 @@ export async function load({ fetch }: LoadParameters): Promise<RootPageSSRData> 
 
   const communityEvents = await retrieveCommunityEvents()
 
+  const featuredPlaylistOverwrites = await retrieveAllCollectionDataOfType(
+    'featured-playlist-overwrites',
+  )
+  const featuredPlaylistOverwriteMap = Object.fromEntries(
+    featuredPlaylistOverwrites.map((x) => [x.attributes.id, x.attributes]),
+  )
+
   return {
     ...rootPageSSRData,
     communityEvents: communityEvents,
     currentMapOfTheWeek,
+    featuredPlaylistOverwriteMap,
   }
 }
